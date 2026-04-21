@@ -1,13 +1,54 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { FlaskConical } from "lucide-react";
+import { FileText, FlaskConical, Github } from "lucide-react";
+import Link from "next/link";
 import { featuredResearch, featuredResearchSection } from "@/data";
 import { Badge } from "@/components/ui/Badge";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+const researchLinkBtnClass =
+  "inline-flex items-center gap-2 rounded-xl border border-border-subtle bg-surface/60 px-3.5 py-2 text-xs font-medium text-foreground transition-colors hover:border-secondary/35 hover:bg-surface-elevated/80 hover:text-secondary";
+
+function FeaturedResearchLinks() {
+  const paper = featuredResearch.links.paper.trim();
+  const repository = featuredResearch.links.repository.trim();
+  if (!paper && !repository) return null;
+
+  const paperIsExternal = /^https?:\/\//i.test(paper);
+
+  return (
+    <div className="relative mt-8 flex flex-wrap gap-3" role="group" aria-label="Research resources">
+      {paper ? (
+        paperIsExternal ? (
+          <a
+            href={paper}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={researchLinkBtnClass}
+          >
+            <FileText className="h-4 w-4" aria-hidden />
+            View paper (PDF)
+          </a>
+        ) : (
+          <Link href={paper} className={researchLinkBtnClass} target="_blank" rel="noopener noreferrer">
+            <FileText className="h-4 w-4" aria-hidden />
+            View paper (PDF)
+          </Link>
+        )
+      ) : null}
+      {repository ? (
+        <a href={repository} target="_blank" rel="noopener noreferrer" className={researchLinkBtnClass}>
+          <Github className="h-4 w-4" aria-hidden />
+          Repository
+        </a>
+      ) : null}
+    </div>
+  );
+}
+
 export function FeaturedResearch() {
   const reduceMotion = useReducedMotion();
 
@@ -78,6 +119,8 @@ export function FeaturedResearch() {
               <p className="relative mt-8 max-w-3xl text-pretty text-base leading-relaxed text-muted sm:text-lg">
                 {featuredResearch.summary}
               </p>
+
+              <FeaturedResearchLinks />
 
               <div className="relative mt-10 border-t border-border-subtle/80 pt-8">
                 <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary">Key outcomes</h4>

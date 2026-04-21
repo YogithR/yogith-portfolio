@@ -18,12 +18,12 @@ export const personal = {
   linkedIn: "https://www.linkedin.com/in/yogith-ramanan-2a8293208/",
   github: "https://github.com/YogithR",
   /** Replace with "/images/profile.jpg" after adding your photo to public/images/ */
-  profileImage: "/images/profile-placeholder.svg",
+  profileImage: "/images/profile.jpg",
   /**
    * PDF resume served from `public/assets/`. Add your file as e.g. `resume.pdf` and match the path here.
    * Until the file exists, the button will 404 — add `public/assets/resume.pdf` (or update this string).
    */
-  resumePdfPath: "/assets/resume.pdf",
+  resumePdfPath: "/assets/Yogith_Ramanan_Resume.pdf",
 } as const;
 
 /** Hero-only copy (website-friendly; grounded in resume — no invented roles). */
@@ -339,6 +339,15 @@ export const featuredResearch = {
     "Adaptive Hybrid controller: closed-loop feedback on per-workload P95 latency headroom to adjust routing weights dynamically, removing hand-tuned parameters.",
     "Pareto analysis plus a five-scenario deployment framework (strict through batch-async SLOs), benchmarked against CASPER, Google CICS, and Microsoft-style carbon-aware computing references.",
   ],
+  /**
+   * Optional links for the research card.
+   * - `paper`: path under `public/` (e.g. `/assets/carbon-scheduling-paper.pdf`) or any https PDF URL.
+   * - `repository`: public repo for the simulation / code. Do not reuse another project’s repo URL.
+   */
+  links: {
+    paper: "/assets/carbon-aware-paper.pdf",
+    repository: "https://github.com/venomez-viper/Carbon-Aware-Scheduling-for-Multi-Region-AI-Inference",
+  },
 } as const;
 
 export type ProjectEntry = {
@@ -392,7 +401,9 @@ export const projects: readonly ProjectEntry[] = [
     ],
     imageSrc: "/images/projects/project-placeholder.svg",
     featured: true,
-    links: {},
+    links: {
+      repository: "https://github.com/YogithR/Cloud-Native-Multimodal-Drug-Prioritization-",
+    },
   },
   {
     id: "a2a-sdk",
@@ -407,7 +418,9 @@ export const projects: readonly ProjectEntry[] = [
       "Payload validation, edge-case handling, and consistent error semantics for integrators.",
     ],
     imageSrc: "/images/projects/project-placeholder.svg",
-    links: {},
+    links: {
+      repository: "https://github.com/YogithR/a2aproject-a2a-java",
+    },
   },
   {
     id: "food-calorie",
@@ -422,7 +435,10 @@ export const projects: readonly ProjectEntry[] = [
       "Human-in-the-loop corrections, logging, and exportable prediction history.",
     ],
     imageSrc: "/images/projects/project-placeholder.svg",
-    links: {},
+    links: {
+      demo: "https://food-calorie-tracker-aqkncnfrudkuqhwqebgzqw.streamlit.app/",
+      repository: "https://github.com/YogithR/Food-Calorie-Tracker",
+    },
   },
   {
     id: "serverless-docs",
@@ -445,6 +461,8 @@ export const projects: readonly ProjectEntry[] = [
       "Strict HTTP semantics, input validation, and least-privilege IAM across services.",
     ],
     imageSrc: "/images/projects/project-placeholder.svg",
-    links: {},
+    links: {
+      repository: "https://github.com/YogithR/Serverless-Document-Processing-Pipeline-AWS-",
+    },
   },
 ];
