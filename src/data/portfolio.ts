@@ -4,6 +4,7 @@
  *
  * Optional assets:
  * - Photo: `public/images/profile.jpg` → set `personal.profileImage` to `/images/profile.jpg`
+ * - Nav logo (optional): e.g. `public/images/logo.jpg` → set `personal.brandLogo` to `/images/logo.jpg` (leave "" for the default dot)
  * - Resume PDF: place under `public/assets/` and link from the resume CTA when built
  */
 
@@ -17,6 +18,8 @@ export const personal = {
   location: "Chicago, IL · USA",
   linkedIn: "https://www.linkedin.com/in/yogith-ramanan-2a8293208/",
   github: "https://github.com/YogithR",
+  /** Optional: small logo next to your name in the header. Add e.g. `public/images/logo.png` and set to `/images/logo.png`. Use "" to keep the cyan dot. */
+  brandLogo: "/images/logo.jpg",
   /** Replace with "/images/profile.jpg" after adding your photo to public/images/ */
   profileImage: "/images/profile.jpg",
   /**
@@ -69,8 +72,8 @@ export const about = {
       detail: "Full-stack delivery, cloud-native systems, applied ML & research",
     },
   ],
-  /** Wide accent image — replace with e.g. `/images/about-accent.jpg` after adding the file. */
-  accentImage: "/images/about-accent-placeholder.svg",
+  /** Wide accent image (campus / college photo). File must live under `public/images/` (see path below). */
+  accentImage: "/images/depaul-campus.jpg",
 } as const;
 
 export type SkillCategory = {
@@ -83,7 +86,7 @@ export const skillsSection = {
   eyebrow: "Stack",
   title: "Technical skills",
   description:
-    "Organized by category to match my resume—everything listed below appears there; nothing is trimmed for effect.",
+    "Organized by category to match my resume - everything listed below appears there; nothing is trimmed for effect.",
 } as const;
 
 /**

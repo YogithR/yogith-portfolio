@@ -51,20 +51,17 @@ export function About() {
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
             </div>
-            <p className="sr-only">
-              Optional secondary image. Replace public/images/about-accent-placeholder.svg with your
-              image (e.g. about-accent.jpg) and set about.accentImage in src/data/portfolio.ts.
-            </p>
+            <p className="sr-only">About section accent image from about.accentImage in portfolio data.</p>
             <p className="border-t border-border-subtle px-4 py-3 text-center text-[11px] leading-snug text-muted lg:text-left">
-              Replace with{" "}
-              <code className="rounded bg-surface px-1 py-0.5 font-mono text-[10px] text-secondary">
-                public/images/about-accent.jpg
-              </code>{" "}
-              and update{" "}
+              Campus photo — set{" "}
               <code className="rounded bg-surface px-1 py-0.5 font-mono text-[10px] text-secondary">
                 about.accentImage
               </code>{" "}
-              if you want a campus, team, or workspace photo here.
+              in{" "}
+              <code className="rounded bg-surface px-1 py-0.5 font-mono text-[10px] text-secondary">
+                portfolio.ts
+              </code>{" "}
+              if you use a different file name.
             </p>
           </div>
         </Reveal>

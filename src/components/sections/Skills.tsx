@@ -48,6 +48,7 @@ export function Skills() {
         title={skillsSection.title}
         titleId="skills-heading"
         description={skillsSection.description}
+        lockTranslation
       />
 
       {reduceMotion ? (

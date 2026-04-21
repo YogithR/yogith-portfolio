@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { NAV_SECTIONS } from "@/config/navigation";
@@ -11,6 +12,43 @@ import { Container } from "@/components/ui/Container";
 import { cn } from "@/lib/cn";
 
 const navIds = NAV_SECTIONS.map((s) => s.id);
+
+function BrandMark({ scrolled, reduce }: { scrolled: boolean; reduce: boolean }) {
+  const logoSrc = typeof personal.brandLogo === "string" ? personal.brandLogo.trim() : "";
+
+  const mark =
+    logoSrc.length > 0 ? (
+      <span className="relative block h-8 w-8 shrink-0 overflow-hidden rounded-lg bg-surface/40 ring-1 ring-border-subtle/80">
+        <Image
+          src={logoSrc}
+          alt=""
+          width={32}
+          height={32}
+          className="h-full w-full object-cover object-center"
+          priority
+          sizes="32px"
+          unoptimized={logoSrc.endsWith(".svg")}
+        />
+      </span>
+    ) : (
+      <span className="h-2 w-2 shrink-0 rounded-full bg-secondary shadow-[0_0_14px_rgba(56,189,248,0.55)]" />
+    );
+
+  if (reduce) {
+    return <span className="inline-flex shrink-0 items-center">{mark}</span>;
+  }
+
+  return (
+    <motion.span
+      className="inline-flex shrink-0 items-center"
+      initial={false}
+      animate={{ scale: scrolled ? 1 : 1.06 }}
+      transition={{ type: "spring", stiffness: 400, damping: 26 }}
+    >
+      {mark}
+    </motion.span>
+  );
+}
 
 export function Navbar() {
   const activeId = useActiveSection(navIds);
@@ -48,16 +86,7 @@ export function Navbar() {
           className="group flex min-w-0 items-center gap-2.5"
           onClick={() => setOpen(false)}
         >
-          {!reduce ? (
-            <motion.span
-              className="h-2 w-2 shrink-0 rounded-full bg-secondary shadow-[0_0_14px_rgba(56,189,248,0.55)]"
-              initial={false}
-              animate={{ scale: scrolled ? 1 : 1.06 }}
-              transition={{ type: "spring", stiffness: 400, damping: 26 }}
-            />
-          ) : (
-            <span className="h-2 w-2 shrink-0 rounded-full bg-secondary shadow-[0_0_14px_rgba(56,189,248,0.55)]" />
-          )}
+          <BrandMark scrolled={scrolled} reduce={Boolean(reduce)} />
           <span className="truncate text-sm font-semibold tracking-tight text-foreground transition-colors group-hover:text-secondary">
             {personal.name}
           </span>

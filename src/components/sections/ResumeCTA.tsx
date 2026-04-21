@@ -28,6 +28,7 @@ export function ResumeCTA() {
         title={resumeCtaSection.title}
         titleId="resume-heading"
         description={resumeCtaSection.description}
+        lockTranslation
       />
 
       <div className="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">

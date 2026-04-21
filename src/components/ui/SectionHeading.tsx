@@ -13,6 +13,8 @@ type SectionHeadingProps = {
   action?: ReactNode;
   className?: string;
   titleId?: string;
+  /** Set when copy must stay literal English (stops auto-translate from changing the word "resume"). */
+  lockTranslation?: boolean;
 };
 
 export function SectionHeading({
@@ -23,6 +25,7 @@ export function SectionHeading({
   action,
   className,
   titleId,
+  lockTranslation = false,
 }: SectionHeadingProps) {
   return (
     <Reveal className="w-full" y={12} duration={0.48} delay={0}>
@@ -33,7 +36,10 @@ export function SectionHeading({
           className,
         )}
       >
-        <div className={cn("max-w-2xl", align === "center" && "mx-auto")}>
+        <div
+          translate={lockTranslation ? "no" : undefined}
+          className={cn("max-w-2xl", align === "center" && "mx-auto", lockTranslation && "notranslate")}
+        >
           {eyebrow ? (
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-secondary">
               {eyebrow}
