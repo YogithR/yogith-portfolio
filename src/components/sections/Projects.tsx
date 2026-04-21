@@ -184,7 +184,7 @@ function Highlights({
         ))}
       </ul>
       {compact && items.length > 2 ? (
-        <p className="mt-2 text-xs text-muted/90">+{items.length - 2} more in full résumé</p>
+        <p className="mt-2 text-xs text-muted/90">+{items.length - 2} more in full resume</p>
       ) : null}
     </div>
   );

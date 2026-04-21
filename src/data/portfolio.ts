@@ -83,11 +83,11 @@ export const skillsSection = {
   eyebrow: "Stack",
   title: "Technical skills",
   description:
-    "Organized by category to match my résumé—everything listed below appears there; nothing is trimmed for effect.",
+    "Organized by category to match my resume—everything listed below appears there; nothing is trimmed for effect.",
 } as const;
 
 /**
- * Skill categories — titles match portfolio section labels; items are verbatim from the résumé.
+ * Skill categories — titles match portfolio section labels; items are verbatim from the resume.
  */
 export const skillCategories: SkillCategory[] = [
   {
@@ -211,7 +211,7 @@ export type ExperienceRole = {
   location: string;
   start: string;
   end: string;
-  /** Website-friendly lines derived from résumé bullets (same scope, tightened wording). */
+  /** Website-friendly lines derived from resume bullets (same scope, tightened wording). */
   highlights: readonly string[];
   /** Tags grounded in what each role explicitly involved (tools, scope, or stack). */
   tags: readonly string[];
@@ -276,7 +276,7 @@ export const education = [
   },
 ] as const;
 
-/** Snapshot lines for the résumé CTA — complementary to other sections, not a repeat of long-form About copy. */
+/** Snapshot lines for the resume CTA — complementary to other sections, not a repeat of long-form About copy. */
 export const resumeQuickHighlights = [
   {
     label: "Graduate study",
@@ -301,7 +301,7 @@ export const resumeQuickHighlights = [
 ] as const;
 
 export const resumeCtaSection = {
-  eyebrow: "Résumé",
+  eyebrow: "Resume",
   title: "Quick highlights & download",
   description:
     "At-a-glance signals for recruiters; explore projects and experience above for depth.",
@@ -324,7 +324,7 @@ export const featuredResearchSection = {
     "A focused highlight from recent work—simulation-driven routing for lower carbon without sacrificing latency SLOs.",
 } as const;
 
-/** Carbon-aware scheduling study — website copy derived from résumé bullets (metrics and claims preserved). */
+/** Carbon-aware scheduling study — website copy derived from resume bullets (metrics and claims preserved). */
 export const featuredResearch = {
   projectTitle: "Carbon-Aware Scheduling for Multi-Region AI Inference",
   period: "January 2026 – March 2026",
@@ -332,7 +332,7 @@ export const featuredResearch = {
   /** Short overview (2 sentences). */
   summary:
     "This project asks how to route inference requests across global regions when both electricity carbon intensity and network latency matter. I built a discrete-event simulator on real traces, then designed and evaluated hybrid routing policies—including constrained and adaptive controllers—against strong static baselines and prior carbon-aware systems.",
-  /** Tight outcome statements; each maps to detailed résumé bullets. */
+  /** Tight outcome statements; each maps to detailed resume bullets. */
   outcomes: [
     "Python discrete-event simulation comparing 8 request-routing policies across 5 AWS regions and 3 model workloads (BERT-base, BERT-large, ResNet-50), replaying 33,600 requests over 7 days with measured carbon-intensity and latency data.",
     "Constrained Hybrid policy: 54.8-point carbon-intensity reduction vs static baselines with zero SLO violations and 62.3 ms average latency—demonstrating carbon savings without breaking service objectives.",
@@ -354,7 +354,7 @@ export type ProjectEntry = {
   id: string;
   name: string;
   period: string;
-  /** Short portfolio summary (rewritten from résumé bullets). */
+  /** Short portfolio summary (rewritten from resume bullets). */
   summary: string;
   /** Stack and tools explicitly reflected in the project description. */
   tech: readonly string[];
