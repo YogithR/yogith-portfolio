@@ -399,7 +399,7 @@ export const projects: readonly ProjectEntry[] = [
       "Deterministic ranking with descriptor penalties, confidence, tie-breaks, and reason codes for explainable decision support.",
       "Containerized FastAPI service (predict / rank / batch-rank), Docker Compose packaging, automated tests, and metrics-ready instrumentation.",
     ],
-    imageSrc: "/images/projects/project-placeholder.svg",
+    imageSrc: "/images/projects/drug-prioritization.jpg",
     featured: true,
     links: {
       repository: "https://github.com/YogithR/Cloud-Native-Multimodal-Drug-Prioritization-",
@@ -417,7 +417,7 @@ export const projects: readonly ProjectEntry[] = [
       "Streaming handlers and structured logs to support observability across calls.",
       "Payload validation, edge-case handling, and consistent error semantics for integrators.",
     ],
-    imageSrc: "/images/projects/project-placeholder.svg",
+    imageSrc: "/images/projects/a2a-sdk.jpg",
     links: {
       repository: "https://github.com/YogithR/a2aproject-a2a-java",
     },
@@ -434,7 +434,7 @@ export const projects: readonly ProjectEntry[] = [
       "Caching and preprocessing tuned for responsive CPU inference.",
       "Human-in-the-loop corrections, logging, and exportable prediction history.",
     ],
-    imageSrc: "/images/projects/project-placeholder.svg",
+    imageSrc: "/images/projects/food-calorie.jpg",
     links: {
       demo: "https://food-calorie-tracker-aqkncnfrudkuqhwqebgzqw.streamlit.app/",
       repository: "https://github.com/YogithR/Food-Calorie-Tracker",
@@ -460,7 +460,7 @@ export const projects: readonly ProjectEntry[] = [
       "REST retrieval with API-key auth; latency and error signals in CloudWatch.",
       "Strict HTTP semantics, input validation, and least-privilege IAM across services.",
     ],
-    imageSrc: "/images/projects/project-placeholder.svg",
+    imageSrc: "/images/projects/serverless-docs.jpg",
     links: {
       repository: "https://github.com/YogithR/Serverless-Document-Processing-Pipeline-AWS-",
     },

@@ -5,11 +5,11 @@
 export const NAV_SECTIONS = [
   { id: "hero", label: "Home", href: "#hero" },
   { id: "about", label: "About", href: "#about" },
-  { id: "skills", label: "Skills", href: "#skills" },
   { id: "experience", label: "Experience", href: "#experience" },
   { id: "research", label: "Research", href: "#research" },
   { id: "projects", label: "Projects", href: "#projects" },
   { id: "education", label: "Education", href: "#education" },
+  { id: "skills", label: "Skills", href: "#skills" },
   { id: "resume", label: "Resume", href: "#resume" },
   { id: "contact", label: "Contact", href: "#contact" },
 ] as const;

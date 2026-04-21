@@ -13,11 +13,11 @@ export default function HomePage() {
     <>
       <Hero />
       <About />
-      <Skills />
       <Experience />
       <FeaturedResearch />
       <Projects />
       <Education />
+      <Skills />
       <ResumeCTA />
       <Contact />
     </>

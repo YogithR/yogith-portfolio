@@ -88,7 +88,7 @@ function HeroCopy({ reduceMotion }: { reduceMotion: boolean }) {
       </Button>
       <Button href={personal.resumePdfPath} variant="outline" size="lg" download>
         <FileDown className="h-4 w-4" aria-hidden />
-        Download résumé
+        Download resume
       </Button>
       <Button href="#contact" variant="ghost" size="lg">
         <Mail className="h-4 w-4" aria-hidden />
@@ -186,8 +186,8 @@ function HeroPortrait({ reduceMotion }: { reduceMotion: boolean }) {
       <code className="rounded bg-surface px-1 py-0.5 font-mono text-[10px] text-secondary">public/images/profile.jpg</code>{" "}
       and set <code className="rounded bg-surface px-1 py-0.5 font-mono text-[10px] text-secondary">personal.profileImage</code>{" "}
       to <code className="rounded bg-surface px-1 py-0.5 font-mono text-[10px] text-secondary">/images/profile.jpg</code> in{" "}
-      <code className="rounded bg-surface px-1 py-0.5 font-mono text-[10px] text-secondary">src/data/portfolio.ts</code>. Add your PDF
-      résumé as <code className="rounded bg-surface px-1 py-0.5 font-mono text-[10px] text-secondary">public/assets/resume.pdf</code>{" "}
+      <code className="rounded bg-surface px-1 py-0.5 font-mono text-[10px] text-secondary">src/data/portfolio.ts</code>.       Add your PDF
+      resume as <code className="rounded bg-surface px-1 py-0.5 font-mono text-[10px] text-secondary">public/assets/resume.pdf</code>{" "}
       (or change <code className="rounded bg-surface px-1 py-0.5 font-mono text-[10px] text-secondary">resumePdfPath</code>).
     </p>
   );

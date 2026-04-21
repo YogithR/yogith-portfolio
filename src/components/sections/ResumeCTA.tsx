@@ -68,7 +68,7 @@ export function ResumeCTA() {
       <Reveal delay={0.12}>
         <div className="mt-10 flex flex-col items-stretch justify-between gap-6 rounded-2xl border border-border-subtle bg-gradient-to-br from-surface-elevated/80 via-surface/60 to-background/90 p-6 shadow-[var(--shadow-card)] backdrop-blur-sm sm:flex-row sm:items-center sm:px-8 sm:py-7">
           <div className="min-w-0">
-            <p className="text-sm font-semibold text-foreground">Full résumé</p>
+            <p className="text-sm font-semibold text-foreground">Full resume</p>
             <p className="mt-1 max-w-xl text-sm leading-relaxed text-muted">
               Download a single PDF with consolidated experience, education, and skills—easy to share with recruiters and hiring managers.
             </p>
@@ -76,7 +76,7 @@ export function ResumeCTA() {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
             <Button href={personal.resumePdfPath} variant="primary" size="lg" download>
               <Download className="h-4 w-4" aria-hidden />
-              Download résumé
+              Download resume
             </Button>
             <div className="flex flex-wrap gap-2 sm:justify-end">
               <Button href={personal.github} variant="ghost" size="lg" target="_blank" rel="noopener noreferrer">
