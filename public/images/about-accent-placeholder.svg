@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-label="Optional accent image placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#151f32"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="30%" y1="0%" x2="70%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.12"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" rx="16" fill="url(#bg)"/>
+  <rect width="640" height="360" rx="16" fill="url(#glow)"/>
+  <text x="320" y="190" text-anchor="middle" fill="#64748b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="14">
+    Optional accent  add public/images/about-accent.jpg
+  </text>
+</svg>

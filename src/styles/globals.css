@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+/**
+ * Design tokens — Tailwind v4 @theme.
+ * Extend here as the site grows (spacing scale, radii, motion).
+ */
+@theme {
+  --site-header-height: 3.75rem;
+
+  --color-background: #0b1120;
+  --color-surface: #111827;
+  --color-surface-elevated: #151f32;
+  --color-border-subtle: rgba(148, 163, 184, 0.12);
+  --color-primary: #2563eb;
+  --color-primary-soft: rgba(37, 99, 235, 0.15);
+  --color-secondary: #38bdf8;
+  --color-accent: #a78bfa;
+  --color-foreground: #f8fafc;
+  --color-muted: #94a3b8;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --shadow-glow: 0 0 80px -20px rgba(37, 99, 235, 0.35);
+  --shadow-card: 0 18px 50px -24px rgba(0, 0, 0, 0.55);
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  @media (min-width: 1024px) {
+    :root {
+      --site-header-height: 4rem;
+    }
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: clip;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+    overflow-x: clip;
+  }
+
+  ::selection {
+    @apply bg-primary/30 text-foreground;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-secondary;
+  }
+}
