@@ -38,22 +38,22 @@ export function Projects() {
           viewport={{ once: true, margin: "-8% 0px" }}
           variants={{
             hidden: {},
-            show: { transition: { staggerChildren: 0.07, delayChildren: 0.06 } },
+            show: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
           }}
         >
           {grid.map((project, index) => (
             <motion.li
               key={project.id}
               variants={{
-                hidden: { opacity: 0, y: 16 },
+                hidden: { opacity: 0, y: 22 },
                 show: {
                   opacity: 1,
                   y: 0,
-                  transition: { duration: 0.46, ease: [0.22, 1, 0.36, 1] },
+                  transition: { duration: 0.54, ease: [0.22, 1, 0.36, 1] },
                 },
               }}
             >
-              <Reveal delay={index * 0.01} y={10} duration={0.42}>
+              <Reveal delay={index * 0.02} y={14} duration={0.5}>
                 <ProjectCard project={project} compact />
               </Reveal>
             </motion.li>
@@ -136,16 +136,16 @@ function ProjectImage({ project, className }: { project: (typeof projects)[numbe
   return (
     <motion.div
       className={cn("relative overflow-hidden bg-surface/60", className)}
-      initial={reduceMotion ? false : { opacity: 0.92, scale: 1.025 }}
+      initial={reduceMotion ? false : { opacity: 0.86, scale: 1.05 }}
       whileInView={reduceMotion ? undefined : { opacity: 1, scale: 1 }}
       viewport={{ once: true, margin: "-6% 0px" }}
-      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }}
     >
       <Image
         src={project.imageSrc}
         alt=""
         fill
-        className="object-cover object-center transition duration-700 ease-out group-hover:scale-[1.035]"
+        className="object-cover object-center transition duration-700 ease-out group-hover:scale-[1.04]"
         sizes="(min-width: 1024px) 50vw, 100vw"
         unoptimized={project.imageSrc.endsWith(".svg")}
       />

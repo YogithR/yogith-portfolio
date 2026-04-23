@@ -65,10 +65,10 @@ export function Section({
       aria-labelledby={ariaLabelledBy}
       data-section={id}
       className={sectionClass}
-      initial={{ opacity: 0, y: 14 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-8% 0px" }}
-      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+      viewport={{ once: true, margin: "-6% 0px" }}
+      transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }}
     >
       {bleed ? (
         <div className={cn(className)}>{children}</div>

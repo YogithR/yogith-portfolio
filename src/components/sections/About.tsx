@@ -42,16 +42,16 @@ export function About() {
           <div className="relative overflow-hidden rounded-2xl border border-border-subtle bg-surface/40 shadow-[var(--shadow-card)]">
             <motion.div
               className="relative aspect-[16/10] w-full"
-              initial={reduceMotion ? false : { opacity: 0.94, scale: 1.02 }}
+              initial={reduceMotion ? false : { opacity: 0.88, scale: 1.045 }}
               whileInView={reduceMotion ? undefined : { opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-8% 0px" }}
-              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }}
             >
               <Image
                 src={about.accentImage}
                 alt="Campus photo"
                 fill
-                className="object-cover object-center transition duration-700 ease-out hover:scale-[1.03]"
+                className="object-cover object-center transition duration-700 ease-out hover:scale-[1.04]"
                 sizes="(min-width: 1024px) 320px, 100vw"
                 unoptimized={about.accentImage.endsWith(".svg")}
               />

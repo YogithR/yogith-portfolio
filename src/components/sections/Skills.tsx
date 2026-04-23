@@ -68,18 +68,18 @@ export function Skills() {
           viewport={{ once: true, margin: "-8% 0px" }}
           variants={{
             hidden: {},
-            show: { transition: { staggerChildren: 0.07, delayChildren: 0.06 } },
+            show: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
           }}
         >
           {skillCategories.map((category) => (
             <motion.li
               key={category.title}
               variants={{
-                hidden: { opacity: 0, y: 18 },
+                hidden: { opacity: 0, y: 24 },
                 show: {
                   opacity: 1,
                   y: 0,
-                  transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
+                  transition: { duration: 0.52, ease: [0.22, 1, 0.36, 1] },
                 },
               }}
             >
