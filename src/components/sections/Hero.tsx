@@ -88,7 +88,7 @@ function HeroCopy({ reduceMotion }: { reduceMotion: boolean }) {
       </Button>
       <Button href={personal.resumePdfPath} variant="outline" size="lg" download>
         <FileDown className="h-4 w-4" aria-hidden />
-        Download resume
+        Download Resume
       </Button>
       <Button href="#contact" variant="ghost" size="lg">
         <Mail className="h-4 w-4" aria-hidden />
@@ -180,18 +180,6 @@ function HeroCopy({ reduceMotion }: { reduceMotion: boolean }) {
 }
 
 function HeroPortrait({ reduceMotion }: { reduceMotion: boolean }) {
-  const caption = (
-    <p className="mt-3 text-center text-[11px] leading-relaxed text-muted/90 lg:text-left">
-      Photo placeholder — add{" "}
-      <code className="rounded bg-surface px-1 py-0.5 font-mono text-[10px] text-secondary">public/images/profile.jpg</code>{" "}
-      and set <code className="rounded bg-surface px-1 py-0.5 font-mono text-[10px] text-secondary">personal.profileImage</code>{" "}
-      to <code className="rounded bg-surface px-1 py-0.5 font-mono text-[10px] text-secondary">/images/profile.jpg</code> in{" "}
-      <code className="rounded bg-surface px-1 py-0.5 font-mono text-[10px] text-secondary">src/data/portfolio.ts</code>.       Add your PDF
-      resume as <code className="rounded bg-surface px-1 py-0.5 font-mono text-[10px] text-secondary">public/assets/resume.pdf</code>{" "}
-      (or change <code className="rounded bg-surface px-1 py-0.5 font-mono text-[10px] text-secondary">resumePdfPath</code>).
-    </p>
-  );
-
   const frame = (
     <>
       <div
@@ -210,7 +198,6 @@ function HeroPortrait({ reduceMotion }: { reduceMotion: boolean }) {
         />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-90" />
       </div>
-      {caption}
     </>
   );
 

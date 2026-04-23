@@ -77,7 +77,7 @@ export function ResumeCTA() {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
             <Button href={personal.resumePdfPath} variant="primary" size="lg" download>
               <Download className="h-4 w-4" aria-hidden />
-              Download resume
+              Download Resume
             </Button>
             <div className="flex flex-wrap gap-2 sm:justify-end">
               <Button href={personal.github} variant="ghost" size="lg" target="_blank" rel="noopener noreferrer">

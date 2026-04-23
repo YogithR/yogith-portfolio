@@ -43,7 +43,7 @@ export function About() {
             <div className="relative aspect-[16/10] w-full">
               <Image
                 src={about.accentImage}
-                alt=""
+                alt="Campus photo"
                 fill
                 className="object-cover object-center transition duration-700 ease-out hover:scale-[1.02]"
                 sizes="(min-width: 1024px) 320px, 100vw"
@@ -51,18 +51,6 @@ export function About() {
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
             </div>
-            <p className="sr-only">About section accent image from about.accentImage in portfolio data.</p>
-            <p className="border-t border-border-subtle px-4 py-3 text-center text-[11px] leading-snug text-muted lg:text-left">
-              Campus photo — set{" "}
-              <code className="rounded bg-surface px-1 py-0.5 font-mono text-[10px] text-secondary">
-                about.accentImage
-              </code>{" "}
-              in{" "}
-              <code className="rounded bg-surface px-1 py-0.5 font-mono text-[10px] text-secondary">
-                portfolio.ts
-              </code>{" "}
-              if you use a different file name.
-            </p>
           </div>
         </Reveal>
       </div>
