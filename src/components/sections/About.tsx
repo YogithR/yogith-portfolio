@@ -40,17 +40,23 @@ export function About() {
 
         <Reveal delay={0.12} className="lg:pt-1">
           <div className="relative overflow-hidden rounded-2xl border border-border-subtle bg-surface/40 shadow-[var(--shadow-card)]">
-            <div className="relative aspect-[16/10] w-full">
+            <motion.div
+              className="relative aspect-[16/10] w-full"
+              initial={reduceMotion ? false : { opacity: 0.94, scale: 1.02 }}
+              whileInView={reduceMotion ? undefined : { opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-8% 0px" }}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            >
               <Image
                 src={about.accentImage}
                 alt="Campus photo"
                 fill
-                className="object-cover object-center transition duration-700 ease-out hover:scale-[1.02]"
+                className="object-cover object-center transition duration-700 ease-out hover:scale-[1.03]"
                 sizes="(min-width: 1024px) 320px, 100vw"
                 unoptimized={about.accentImage.endsWith(".svg")}
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
-            </div>
+            </motion.div>
           </div>
         </Reveal>
       </div>

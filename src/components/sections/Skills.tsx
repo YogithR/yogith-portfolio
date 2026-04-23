@@ -64,10 +64,11 @@ export function Skills() {
           className="mt-12 grid list-none gap-5 md:grid-cols-2 xl:grid-cols-3"
           role="list"
           initial="hidden"
-          animate="show"
+          whileInView="show"
+          viewport={{ once: true, margin: "-8% 0px" }}
           variants={{
             hidden: {},
-            show: { transition: { staggerChildren: 0.06, delayChildren: 0.08 } },
+            show: { transition: { staggerChildren: 0.07, delayChildren: 0.06 } },
           }}
         >
           {skillCategories.map((category) => (

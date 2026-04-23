@@ -29,19 +29,36 @@ export function Projects() {
       <div className="mt-12 space-y-8 lg:space-y-10">
         {featured ? <FeaturedProjectCard project={featured} reduceMotion={!!reduceMotion} /> : null}
 
-        <ul
+        <motion.ul
           className="grid list-none gap-6 md:grid-cols-2 xl:grid-cols-3"
           role="list"
           aria-label="Additional projects"
+          initial={reduceMotion ? false : "hidden"}
+          whileInView={reduceMotion ? undefined : "show"}
+          viewport={{ once: true, margin: "-8% 0px" }}
+          variants={{
+            hidden: {},
+            show: { transition: { staggerChildren: 0.07, delayChildren: 0.06 } },
+          }}
         >
           {grid.map((project, index) => (
-            <li key={project.id}>
-              <Reveal delay={0.06 + index * 0.05}>
+            <motion.li
+              key={project.id}
+              variants={{
+                hidden: { opacity: 0, y: 16 },
+                show: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.46, ease: [0.22, 1, 0.36, 1] },
+                },
+              }}
+            >
+              <Reveal delay={index * 0.01} y={10} duration={0.42}>
                 <ProjectCard project={project} compact />
               </Reveal>
-            </li>
+            </motion.li>
           ))}
-        </ul>
+        </motion.ul>
       </div>
     </Section>
   );
@@ -114,13 +131,21 @@ function ProjectCard({
 }
 
 function ProjectImage({ project, className }: { project: (typeof projects)[number]; className?: string }) {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <div className={cn("relative overflow-hidden bg-surface/60", className)}>
+    <motion.div
+      className={cn("relative overflow-hidden bg-surface/60", className)}
+      initial={reduceMotion ? false : { opacity: 0.92, scale: 1.025 }}
+      whileInView={reduceMotion ? undefined : { opacity: 1, scale: 1 }}
+      viewport={{ once: true, margin: "-6% 0px" }}
+      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+    >
       <Image
         src={project.imageSrc}
         alt=""
         fill
-        className="object-cover object-center transition duration-700 ease-out group-hover:scale-[1.04]"
+        className="object-cover object-center transition duration-700 ease-out group-hover:scale-[1.035]"
         sizes="(min-width: 1024px) 50vw, 100vw"
         unoptimized={project.imageSrc.endsWith(".svg")}
       />
@@ -129,7 +154,7 @@ function ProjectImage({ project, className }: { project: (typeof projects)[numbe
         Screenshot placeholder. Replace the file at {project.imageSrc} or point imageSrc to your asset in
         src/data/portfolio.ts.
       </p>
-    </div>
+    </motion.div>
   );
 }
 

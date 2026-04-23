@@ -1,3 +1,6 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 import { Container } from "@/components/ui/Container";
@@ -36,23 +39,42 @@ export function Section({
   spacing = "md",
   variant = "default",
 }: SectionProps) {
+  const reduceMotion = useReducedMotion();
+  const sectionClass = cn(
+    "scroll-mt-[var(--site-header-height)] border-b border-border-subtle last:border-b-0",
+    variant === "muted" && "bg-[radial-gradient(ellipse_80%_50%_at_50%_-30%,rgba(37,99,235,0.06),transparent)]",
+    spacingClass[spacing],
+    sectionClassName,
+  );
+
+  if (reduceMotion) {
+    return (
+      <section id={id} aria-labelledby={ariaLabelledBy} data-section={id} className={sectionClass}>
+        {bleed ? (
+          <div className={cn(className)}>{children}</div>
+        ) : (
+          <Container className={cn(className)}>{children}</Container>
+        )}
+      </section>
+    );
+  }
+
   return (
-    <section
+    <motion.section
       id={id}
       aria-labelledby={ariaLabelledBy}
       data-section={id}
-      className={cn(
-        "scroll-mt-[var(--site-header-height)] border-b border-border-subtle last:border-b-0",
-        variant === "muted" && "bg-[radial-gradient(ellipse_80%_50%_at_50%_-30%,rgba(37,99,235,0.06),transparent)]",
-        spacingClass[spacing],
-        sectionClassName,
-      )}
+      className={sectionClass}
+      initial={{ opacity: 0, y: 14 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-8% 0px" }}
+      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
     >
       {bleed ? (
         <div className={cn(className)}>{children}</div>
       ) : (
         <Container className={cn(className)}>{children}</Container>
       )}
-    </section>
+    </motion.section>
   );
 }
