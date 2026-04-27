@@ -57,7 +57,7 @@ export function Navbar() {
   const reduce = useReducedMotion();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -72,12 +72,27 @@ export function Navbar() {
   }, [open]);
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,box-shadow] duration-300",
+    <motion.header
+      initial={false}
+      animate={
         scrolled
-          ? "border-border-subtle bg-background/85 shadow-[0_8px_40px_-16px_rgba(0,0,0,0.55)] backdrop-blur-xl supports-[backdrop-filter]:bg-background/70"
-          : "border-transparent bg-background/55 backdrop-blur-md supports-[backdrop-filter]:bg-background/40",
+          ? {
+              backgroundColor: "rgba(6,11,24,0.85)",
+              borderBottomColor: "rgba(0,212,255,0.15)",
+              boxShadow: "0 8px 36px -18px rgba(0,0,0,0.65), 0 1px 0 rgba(0,212,255,0.18)",
+            }
+          : {
+              backgroundColor: "rgba(6,11,24,0.55)",
+              borderBottomColor: "rgba(148,163,184,0)",
+              boxShadow: "0 0 0 rgba(0,0,0,0)",
+            }
+      }
+      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+      className={cn(
+        "fixed inset-x-0 top-0 z-50 border-b backdrop-blur-md supports-[backdrop-filter]:bg-background/70",
+        scrolled
+          ? "supports-[backdrop-filter]:bg-[rgba(6,11,24,0.78)]"
+          : "supports-[backdrop-filter]:bg-background/40",
       )}
     >
       <Container className="flex h-[var(--site-header-height)] items-center justify-between gap-4">
@@ -107,14 +122,14 @@ export function Navbar() {
                 {active ? (
                   reduce ? (
                     <span
-                      className="absolute inset-0 z-0 rounded-lg bg-primary/15 ring-1 ring-primary/25"
+                      className="absolute inset-x-2 bottom-1 z-0 h-[2px] rounded-full bg-[#00D4FF] shadow-[0_0_8px_#00D4FF]"
                       aria-hidden
                     />
                   ) : (
                     <motion.span
-                      layoutId="nav-pill"
-                      className="absolute inset-0 z-0 rounded-lg bg-primary/15 ring-1 ring-primary/25"
-                      transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                      layoutId="navIndicator"
+                      className="absolute inset-x-2 bottom-1 z-0 h-[2px] rounded-full bg-[#00D4FF] shadow-[0_0_8px_#00D4FF]"
+                      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                       aria-hidden
                     />
                   )
@@ -169,6 +184,6 @@ export function Navbar() {
           </Container>
         </div>
       ) : null}
-    </header>
+    </motion.header>
   );
 }

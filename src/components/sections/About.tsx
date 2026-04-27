@@ -32,13 +32,13 @@ export function About() {
       <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,min(100%,320px))] lg:items-start lg:gap-12 xl:gap-14">
         <div className="space-y-6">
           {about.paragraphs.map((text, i) => (
-            <Reveal key={i} delay={0.06 * i}>
+            <Reveal key={i} delay={0.08 * i} direction="up">
               <p className="text-pretty text-base leading-relaxed text-muted sm:text-lg">{text}</p>
             </Reveal>
           ))}
         </div>
 
-        <Reveal delay={0.12} className="lg:pt-1">
+        <Reveal delay={0} direction="right" className="lg:pt-1">
           <div className="relative overflow-hidden rounded-2xl border border-border-subtle bg-surface/40 shadow-[var(--shadow-card)]">
             <motion.div
               className="relative aspect-[16/10] w-full"
@@ -61,41 +61,15 @@ export function About() {
         </Reveal>
       </div>
 
-      {reduceMotion ? (
-        <ul className="mt-12 grid gap-4 sm:grid-cols-3">
-          {about.stats.map((stat, index) => (
-            <li key={stat.label}>
+      <ul className="mt-12 grid gap-4 sm:grid-cols-3">
+        {about.stats.map((stat, index) => (
+          <li key={stat.label}>
+            <Reveal delay={0.1 * index} direction="up">
               <StatCard stat={stat} index={index} />
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <motion.ul
-          className="mt-12 grid gap-4 sm:grid-cols-3"
-          initial="hidden"
-          animate="show"
-          variants={{
-            hidden: {},
-            show: { transition: { staggerChildren: 0.08, delayChildren: 0.15 } },
-          }}
-        >
-          {about.stats.map((stat, index) => (
-            <motion.li
-              key={stat.label}
-              variants={{
-                hidden: { opacity: 0, y: 14 },
-                show: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
-                },
-              }}
-            >
-              <StatCard stat={stat} index={index} />
-            </motion.li>
-          ))}
-        </motion.ul>
-      )}
+            </Reveal>
+          </li>
+        ))}
+      </ul>
     </Section>
   );
 }

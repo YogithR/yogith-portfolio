@@ -9,6 +9,7 @@ import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { cn } from "@/lib/cn";
 const researchLinkBtnClass =
   "inline-flex items-center gap-2 rounded-xl border border-border-subtle bg-surface/60 px-3.5 py-2 text-xs font-medium text-foreground transition-colors hover:border-secondary/35 hover:bg-surface-elevated/80 hover:text-secondary";
 
@@ -81,14 +82,17 @@ export function FeaturedResearch() {
 
         <Reveal delay={0.06}>
           <motion.div
-            className="relative mt-12 overflow-hidden rounded-[1.35rem] border border-secondary/25 bg-surface/40 p-px shadow-[0_24px_80px_-32px_rgba(37,99,235,0.45)] backdrop-blur-md"
+            className={cn(
+              "relative mt-12 shadow-[0_24px_80px_-32px_rgba(37,99,235,0.45)]",
+              reduceMotion ? "rounded-[1.35rem] border border-secondary/25 bg-surface/40 p-px" : "neural-conic-border",
+            )}
             initial={reduceMotion ? false : { opacity: 0, y: 20 }}
             whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-12% 0px" }}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="pointer-events-none absolute inset-0 rounded-[1.28rem] bg-gradient-to-br from-primary/18 via-transparent to-accent/12" aria-hidden />
-            <div className="relative rounded-[1.28rem] bg-gradient-to-b from-surface-elevated/90 via-surface/95 to-background/98 p-6 sm:p-8 lg:p-10">
+            <div className="neural-conic-border-inner p-6 sm:p-8 lg:p-10">
               <div
                 className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-secondary/80 to-transparent"
                 aria-hidden
@@ -141,10 +145,10 @@ export function FeaturedResearch() {
                       <motion.li
                         key={i}
                         className="relative pl-5 text-pretty text-sm leading-relaxed text-muted sm:text-base"
-                        initial={{ opacity: 0, x: -8 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.06 * i, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                        initial={{ opacity: 0, y: 16 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ delay: i * 0.15, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
                       >
                         <span
                           className="absolute left-0 top-[0.55em] h-1.5 w-1.5 rounded-full bg-gradient-to-br from-secondary to-primary"

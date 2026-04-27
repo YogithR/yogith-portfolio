@@ -1,6 +1,8 @@
 "use client";
 
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import { MapPin } from "lucide-react";
+import { useRef } from "react";
 import { experience, experienceSection } from "@/data";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
@@ -14,6 +16,10 @@ function formatRange(start: string, end: string) {
 }
 
 export function Experience() {
+  const reduceMotion = useReducedMotion();
+  const lineRef = useRef<HTMLDivElement | null>(null);
+  const lineInView = useInView(lineRef, { once: true, amount: 0.2 });
+
   return (
     <Section id="experience" ariaLabelledBy="experience-heading" spacing="lg" variant="muted">
       <SectionHeading
@@ -23,26 +29,33 @@ export function Experience() {
         description={experienceSection.description}
       />
 
-      <div className="relative mt-14 max-w-3xl">
-        <div
-          className="pointer-events-none absolute left-[15px] top-3 bottom-3 w-px bg-gradient-to-b from-secondary/50 via-border-subtle to-border-subtle md:left-[19px]"
+      <div ref={lineRef} className="relative mt-14 max-w-3xl">
+        <motion.div
+          className="pointer-events-none absolute left-[15px] top-3 bottom-3 w-px origin-top bg-gradient-to-b from-secondary/50 via-border-subtle to-border-subtle md:left-[19px]"
           aria-hidden
+          initial={reduceMotion ? false : { scaleY: 0 }}
+          animate={reduceMotion ? {} : lineInView ? { scaleY: 1 } : { scaleY: 0 }}
+          transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
         />
 
         <ol className="relative space-y-10 md:space-y-12" aria-label="Work history">
           {experience.map((job, index) => (
             <li key={`${job.company}-${job.start}`} className="relative pl-11 md:pl-14">
-              <span
+              <motion.span
                 className={cn(
                   "absolute left-0 top-1 flex h-8 w-8 items-center justify-center rounded-full border-2 border-background bg-surface-elevated shadow-[0_0_0_4px_rgba(11,17,32,0.9)] md:top-0.5 md:h-10 md:w-10",
                   "ring-1 ring-secondary/40",
                 )}
                 aria-hidden
+                initial={reduceMotion ? false : { scale: 1 }}
+                whileInView={reduceMotion ? undefined : { scale: [1, 1.4, 1], boxShadow: ["0 0 0 rgba(0,212,255,0)", "0 0 18px rgba(0,212,255,0.5)", "0 0 0 rgba(0,212,255,0)"] }}
+                viewport={{ once: true, amount: 0.7 }}
+                transition={{ duration: 0.6, delay: 0.08 * index, ease: [0.22, 1, 0.36, 1] }}
               >
                 <span className="h-2.5 w-2.5 rounded-full bg-secondary shadow-[0_0_12px_rgba(56,189,248,0.45)]" />
-              </span>
+              </motion.span>
 
-              <Reveal delay={0.08 * index}>
+              <Reveal delay={0.08 * index} direction="left">
                 <Card
                   interactive
                   padding="lg"

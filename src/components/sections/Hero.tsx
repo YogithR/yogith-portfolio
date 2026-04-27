@@ -14,22 +14,6 @@ const social = [
   { label: "GitHub", href: personal.github, icon: Github },
 ] as const;
 
-const containerVariants = {
-  hidden: {},
-  show: {
-    transition: { staggerChildren: 0.09, delayChildren: 0.06 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 22 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.52, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
-
 export function Hero() {
   const reduceMotion = useReducedMotion();
 
@@ -54,18 +38,33 @@ export function Hero() {
 }
 
 function HeroCopy({ reduceMotion }: { reduceMotion: boolean }) {
+  const nameChars = personal.name.split("");
+
   const badge = (
     <p className="inline-flex items-center gap-2 rounded-full border border-border-subtle bg-surface/55 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-secondary backdrop-blur-sm sm:text-xs">
-      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-secondary shadow-[0_0_12px_rgba(56,189,248,0.55)]" />
+      <motion.span
+        className="h-1.5 w-1.5 rounded-full bg-secondary shadow-[0_0_12px_rgba(56,189,248,0.55)]"
+        animate={reduceMotion ? undefined : { scale: [1, 1.05, 1], opacity: [1, 0.8, 1] }}
+        transition={reduceMotion ? undefined : { duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+      />
       {hero.availability}
     </p>
   );
 
   const heading = (
     <h1 className="text-balance font-semibold tracking-tight text-foreground">
-      <span className="block text-4xl sm:text-5xl lg:text-[3.35rem] lg:leading-[1.06]">{personal.name}</span>
-      <span className="mt-3 block max-w-xl text-lg font-normal leading-snug text-muted sm:text-xl">
-        {personal.title}
+      <span className="block text-4xl sm:text-5xl lg:text-[3.35rem] lg:leading-[1.06]">
+        {nameChars.map((char, index) => (
+          <motion.span
+            key={`${char}-${index}`}
+            className="inline-block whitespace-pre"
+            initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+            animate={reduceMotion ? {} : { opacity: 1, y: 0 }}
+            transition={reduceMotion ? undefined : { delay: 0.05 * index, duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {char}
+          </motion.span>
+        ))}
       </span>
     </h1>
   );
@@ -158,23 +157,48 @@ function HeroCopy({ reduceMotion }: { reduceMotion: boolean }) {
   }
 
   return (
-    <motion.div
-      className="flex flex-col gap-6"
-      initial="hidden"
-      animate="show"
-      variants={containerVariants}
-    >
-      <motion.div variants={itemVariants}>{badge}</motion.div>
-      <motion.div variants={itemVariants}>{heading}</motion.div>
-      <motion.div className="mt-2 flex flex-col gap-6" variants={itemVariants}>
+    <motion.div className="flex flex-col gap-6" initial={{ opacity: 1 }} animate={{ opacity: 1 }}>
+      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
+        {badge}
+      </motion.div>
+      <motion.div>{heading}</motion.div>
+      <motion.div
+        className="mt-2 flex flex-col gap-6"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.55, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <p className="max-w-xl text-lg font-normal leading-snug text-muted sm:text-xl">{personal.title}</p>
+      </motion.div>
+      <motion.div
+        className="mt-2 flex flex-col gap-6"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.55, delay: 1.0, ease: [0.22, 1, 0.36, 1] }}
+      >
         {headline}
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.55, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
+      >
         {summary}
       </motion.div>
-      <motion.div className="mt-2" variants={itemVariants}>
+      <motion.div
+        className="mt-2"
+        initial={{ opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.55, delay: 1.4, ease: [0.22, 1, 0.36, 1] }}
+      >
         {ctas}
       </motion.div>
-      <motion.div variants={itemVariants}>{profiles}</motion.div>
-      <motion.div variants={itemVariants}>{meta}</motion.div>
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 1.6 }}>
+        {profiles}
+      </motion.div>
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.45, delay: 1.7 }}>
+        {meta}
+      </motion.div>
     </motion.div>
   );
 }
@@ -187,6 +211,7 @@ function HeroPortrait({ reduceMotion }: { reduceMotion: boolean }) {
         aria-hidden
       />
       <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border-subtle bg-surface/60 shadow-[var(--shadow-card)] ring-1 ring-white/[0.06]">
+        <div className="pointer-events-none absolute inset-0 z-10 rounded-2xl shadow-[0_0_0_3px_rgba(0,212,255,0.3),0_0_30px_rgba(0,212,255,0.15)]" />
         <Image
           src={personal.profileImage}
           alt={`${personal.name}, professional portrait`}
@@ -209,8 +234,16 @@ function HeroPortrait({ reduceMotion }: { reduceMotion: boolean }) {
     <motion.div
       className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none"
       initial={{ opacity: 0, y: 16, scale: 0.98 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.65, delay: 0.14, ease: [0.22, 1, 0.36, 1] }}
+      animate={reduceMotion ? { opacity: 1, y: 0, scale: 1 } : { opacity: 1, y: [0, -12, 0], scale: 1 }}
+      transition={
+        reduceMotion
+          ? { duration: 0.65, delay: 0.3, ease: [0.22, 1, 0.36, 1] }
+          : {
+              opacity: { duration: 0.65, delay: 0.3, ease: [0.22, 1, 0.36, 1] },
+              y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
+              scale: { duration: 0.65, delay: 0.3, ease: [0.22, 1, 0.36, 1] },
+            }
+      }
     >
       {frame}
     </motion.div>

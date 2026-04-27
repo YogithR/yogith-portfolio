@@ -53,7 +53,7 @@ export function Projects() {
                 },
               }}
             >
-              <Reveal delay={index * 0.02} y={14} duration={0.5}>
+              <Reveal delay={index * 0.1} direction="up" duration={0.55}>
                 <ProjectCard project={project} compact />
               </Reveal>
             </motion.li>
@@ -78,6 +78,7 @@ function FeaturedProjectCard({
       whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-10% 0px" }}
       transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={reduceMotion ? undefined : { y: -8, boxShadow: "0 20px 60px rgba(0,212,255,0.12)" }}
     >
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/12 via-transparent to-accent/10 opacity-90" aria-hidden />
       <div className="relative grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:items-stretch lg:gap-10">
@@ -107,8 +108,9 @@ function ProjectCard({
   project: (typeof projects)[number];
   compact?: boolean;
 }) {
+  const reduceMotion = useReducedMotion();
   return (
-    <div>
+    <motion.div whileHover={reduceMotion ? undefined : { y: -8, boxShadow: "0 20px 60px rgba(0,212,255,0.12)" }}>
       <Card
         interactive
         padding="none"
@@ -126,7 +128,7 @@ function ProjectCard({
           </div>
         </div>
       </Card>
-    </div>
+    </motion.div>
   );
 }
 
@@ -173,7 +175,12 @@ function TechRow({
     <ul className={cn("flex list-none flex-wrap gap-2", className)} role="list" aria-label="Technologies">
       {show.map((t) => (
         <li key={t}>
-          <Badge variant="secondary" size="sm" shape="rounded" className="font-normal">
+          <Badge
+            variant="secondary"
+            size="sm"
+            shape="rounded"
+            className="font-normal transition-shadow duration-300 group-hover:shadow-[0_0_8px_currentColor]"
+          >
             {t}
           </Badge>
         </li>

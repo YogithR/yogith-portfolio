@@ -48,79 +48,85 @@ export function Contact() {
             </p>
           </Reveal>
 
-          <Reveal delay={0.1}>
-            <ul className="mt-8 flex list-none flex-col gap-3" role="list" aria-label="Direct contact">
+          <ul className="mt-8 flex list-none flex-col gap-3" role="list" aria-label="Direct contact">
               <li>
-                <a href={`mailto:${personal.email}`} className={linkCardClass}>
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-secondary">
-                    <Mail className="h-4 w-4" aria-hidden />
-                  </span>
-                  <span className="min-w-0 flex-1">
-                    <span className="block text-xs font-medium uppercase tracking-wider text-muted">Email</span>
-                    <span className="mt-0.5 block truncate text-sm font-medium text-foreground group-hover:text-secondary">
-                      {personal.email}
+                <Reveal delay={0} direction="left">
+                  <a href={`mailto:${personal.email}`} className={linkCardClass}>
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-secondary">
+                      <Mail className="h-4 w-4" aria-hidden />
                     </span>
-                  </span>
-                  <ArrowUpRight className="h-4 w-4 shrink-0 text-muted opacity-0 transition-opacity group-hover:opacity-100" aria-hidden />
-                </a>
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-xs font-medium uppercase tracking-wider text-muted">Email</span>
+                      <span className="mt-0.5 block truncate text-sm font-medium text-foreground group-hover:text-secondary">
+                        {personal.email}
+                      </span>
+                    </span>
+                    <ArrowUpRight className="h-4 w-4 shrink-0 text-muted opacity-0 transition-opacity group-hover:opacity-100" aria-hidden />
+                  </a>
+                </Reveal>
               </li>
               <li>
-                <a href={`tel:+1${personal.phone.replace(/\D/g, "")}`} className={linkCardClass}>
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-secondary">
-                    <Phone className="h-4 w-4" aria-hidden />
-                  </span>
-                  <span className="min-w-0 flex-1">
-                    <span className="block text-xs font-medium uppercase tracking-wider text-muted">Phone</span>
-                    <span className="mt-0.5 block text-sm font-medium text-foreground group-hover:text-secondary">
-                      {personal.phone}
+                <Reveal delay={0.1} direction="left">
+                  <a href={`tel:+1${personal.phone.replace(/\D/g, "")}`} className={linkCardClass}>
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-secondary">
+                      <Phone className="h-4 w-4" aria-hidden />
                     </span>
-                  </span>
-                  <ArrowUpRight className="h-4 w-4 shrink-0 text-muted opacity-0 transition-opacity group-hover:opacity-100" aria-hidden />
-                </a>
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-xs font-medium uppercase tracking-wider text-muted">Phone</span>
+                      <span className="mt-0.5 block text-sm font-medium text-foreground group-hover:text-secondary">
+                        {personal.phone}
+                      </span>
+                    </span>
+                    <ArrowUpRight className="h-4 w-4 shrink-0 text-muted opacity-0 transition-opacity group-hover:opacity-100" aria-hidden />
+                  </a>
+                </Reveal>
               </li>
               <li>
-                <a
-                  href={personal.linkedIn}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={linkCardClass}
-                >
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-secondary">
-                    <Linkedin className="h-4 w-4" aria-hidden />
-                  </span>
-                  <span className="min-w-0 flex-1">
-                    <span className="block text-xs font-medium uppercase tracking-wider text-muted">LinkedIn</span>
-                    <span className="mt-0.5 block truncate text-sm text-foreground group-hover:text-secondary">
-                      Profile
+                <Reveal delay={0.2} direction="left">
+                  <a
+                    href={personal.linkedIn}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={linkCardClass}
+                  >
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-secondary">
+                      <Linkedin className="h-4 w-4" aria-hidden />
                     </span>
-                  </span>
-                  <ArrowUpRight className="h-4 w-4 shrink-0 text-muted opacity-0 transition-opacity group-hover:opacity-100" aria-hidden />
-                </a>
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-xs font-medium uppercase tracking-wider text-muted">LinkedIn</span>
+                      <span className="mt-0.5 block truncate text-sm text-foreground group-hover:text-secondary">
+                        Profile
+                      </span>
+                    </span>
+                    <ArrowUpRight className="h-4 w-4 shrink-0 text-muted opacity-0 transition-opacity group-hover:opacity-100" aria-hidden />
+                  </a>
+                </Reveal>
               </li>
               <li>
-                <a
-                  href={personal.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={linkCardClass}
-                >
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-secondary">
-                    <Github className="h-4 w-4" aria-hidden />
-                  </span>
-                  <span className="min-w-0 flex-1">
-                    <span className="block text-xs font-medium uppercase tracking-wider text-muted">GitHub</span>
-                    <span className="mt-0.5 block truncate text-sm text-foreground group-hover:text-secondary">
-                      {personal.github.replace("https://", "")}
+                <Reveal delay={0.3} direction="left">
+                  <a
+                    href={personal.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={linkCardClass}
+                  >
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-secondary">
+                      <Github className="h-4 w-4" aria-hidden />
                     </span>
-                  </span>
-                  <ArrowUpRight className="h-4 w-4 shrink-0 text-muted opacity-0 transition-opacity group-hover:opacity-100" aria-hidden />
-                </a>
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-xs font-medium uppercase tracking-wider text-muted">GitHub</span>
+                      <span className="mt-0.5 block truncate text-sm text-foreground group-hover:text-secondary">
+                        {personal.github.replace("https://", "")}
+                      </span>
+                    </span>
+                    <ArrowUpRight className="h-4 w-4 shrink-0 text-muted opacity-0 transition-opacity group-hover:opacity-100" aria-hidden />
+                  </a>
+                </Reveal>
               </li>
             </ul>
-          </Reveal>
         </div>
 
-        <Reveal delay={0.08}>
+        <Reveal delay={0.08} direction="right">
           <Card
             interactive={false}
             padding="lg"
@@ -176,7 +182,7 @@ export function Contact() {
               </div>
 
               <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center sm:justify-between">
-                <Button type="submit" variant="primary" size="lg" className="w-full sm:w-auto">
+                <Button type="submit" variant="primary" size="lg" className="shimmer-sweep w-full sm:w-auto">
                   <Send className="h-4 w-4" aria-hidden />
                   Compose in email app
                 </Button>

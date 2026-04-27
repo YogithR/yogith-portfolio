@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
 import {
   BarChart3,
@@ -14,6 +14,7 @@ import {
   Plug,
   Wrench,
 } from "lucide-react";
+import { useRef } from "react";
 import type { SkillCategory } from "@/data";
 import { skillCategories, skillsSection } from "@/data";
 import { Badge } from "@/components/ui/Badge";
@@ -94,6 +95,9 @@ export function Skills() {
 
 function SkillCategoryCard({ category }: { category: SkillCategory }) {
   const Icon = categoryIcon(category);
+  const reduceMotion = useReducedMotion();
+  const cardRef = useRef<HTMLDivElement | null>(null);
+  const inView = useInView(cardRef, { once: true, amount: 0.2 });
 
   return (
     <Card
@@ -101,7 +105,7 @@ function SkillCategoryCard({ category }: { category: SkillCategory }) {
       padding="lg"
       className="group h-full border-border-subtle/90 transition-shadow duration-300 hover:border-secondary/25 hover:shadow-[0_20px_50px_-28px_rgba(0,0,0,0.55)]"
     >
-      <div className="flex gap-4">
+      <div ref={cardRef} className="flex gap-4">
         <span
           className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border-subtle bg-gradient-to-br from-primary/20 to-transparent text-secondary shadow-[0_0_0_1px_rgba(56,189,248,0.08)] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:border-secondary/30"
           aria-hidden
@@ -111,21 +115,33 @@ function SkillCategoryCard({ category }: { category: SkillCategory }) {
         <div className="min-w-0 flex-1">
           <h3 className="font-semibold tracking-tight text-foreground">{category.title}</h3>
           <ul className="mt-4 flex list-none flex-wrap gap-2" role="list">
-            {category.items.map((item) => (
-              <li key={`${category.title}-${item}`} className="max-w-full">
-                <Badge
-                  shape="rounded"
-                  size="sm"
-                  variant="muted"
-                  className={cn(
-                    "max-w-full whitespace-normal border-border-subtle/90 bg-background/30 text-left font-normal leading-snug text-muted",
-                    "transition-colors duration-200 group-hover:border-secondary/15 group-hover:text-foreground/90",
-                    item.length > 42 && "text-[10px] sm:text-[11px]",
-                  )}
-                >
-                  {item}
-                </Badge>
-              </li>
+            {category.items.map((item, badgeIndex) => (
+              <motion.li
+                key={`${category.title}-${item}`}
+                className="max-w-full"
+                initial={reduceMotion ? false : { scale: 0, opacity: 0 }}
+                animate={reduceMotion ? {} : inView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+                transition={
+                  reduceMotion
+                    ? undefined
+                    : { type: "spring", stiffness: 300, damping: 20, delay: 0.04 * badgeIndex }
+                }
+              >
+                <motion.div whileHover={reduceMotion ? undefined : { scale: 1.08 }}>
+                  <Badge
+                    shape="rounded"
+                    size="sm"
+                    variant="muted"
+                    className={cn(
+                      "max-w-full whitespace-normal border-border-subtle/90 bg-background/30 text-left font-normal leading-snug text-muted",
+                      "transition-[color,border-color,box-shadow] duration-200 group-hover:border-secondary/15 group-hover:text-foreground/90 hover:shadow-[0_0_10px_rgba(0,212,255,0.28)]",
+                      item.length > 42 && "text-[10px] sm:text-[11px]",
+                    )}
+                  >
+                    {item}
+                  </Badge>
+                </motion.div>
+              </motion.li>
             ))}
           </ul>
         </div>

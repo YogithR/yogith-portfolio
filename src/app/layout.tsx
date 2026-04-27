@@ -4,6 +4,9 @@ import type { ReactNode } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { BackToTop } from "@/components/ui/BackToTop";
+import { CustomCursor } from "@/components/ui/CustomCursor";
+import { NeuralBackground } from "@/components/ui/NeuralBackground";
 import "@/styles/globals.css";
 import { personal } from "@/data";
 
@@ -28,16 +31,16 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0b1120",
+  themeColor: "#060b18",
   colorScheme: "dark",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="dark">
-      <body
-        className={`${inter.variable} ${jetbrains.variable} flex min-h-dvh flex-col`}
-      >
+      <body className={`${inter.variable} ${jetbrains.variable} page-glow-orbs flex min-h-dvh flex-col`}>
+        <NeuralBackground />
+        <CustomCursor />
         <ScrollProgress />
         <a
           href="#main-content"
@@ -48,10 +51,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Navbar />
         <main
           id="main-content"
-          className="min-h-0 flex-1 overflow-x-clip pt-[var(--site-header-height)]"
+          className="relative z-10 min-h-0 flex-1 overflow-x-clip pt-[var(--site-header-height)]"
         >
           {children}
         </main>
+        <BackToTop />
         <SiteFooter />
       </body>
     </html>

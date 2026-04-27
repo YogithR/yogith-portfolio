@@ -75,7 +75,7 @@ export function ResumeCTA() {
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-            <Button href={personal.resumePdfPath} variant="primary" size="lg" download>
+            <Button href={personal.resumePdfPath} variant="primary" size="lg" download className="shimmer-sweep">
               <Download className="h-4 w-4" aria-hidden />
               Download Resume
             </Button>
