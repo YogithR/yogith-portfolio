@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, FileDown, FolderKanban, Github, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
 import { hero, personal } from "@/data";
@@ -38,6 +39,8 @@ export function Hero() {
 }
 
 function HeroCopy({ reduceMotion }: { reduceMotion: boolean }) {
+  const nameSectionRef = useRef<HTMLSpanElement>(null);
+  const isNameInView = useInView(nameSectionRef, { once: false, amount: 0.5 });
   const nameChars = personal.name.split("");
 
   const badge = (
@@ -53,14 +56,29 @@ function HeroCopy({ reduceMotion }: { reduceMotion: boolean }) {
 
   const heading = (
     <h1 className="text-balance font-semibold tracking-tight text-foreground">
-      <span className="block text-4xl sm:text-5xl lg:text-[3.35rem] lg:leading-[1.06]">
+      <span
+        ref={nameSectionRef}
+        className="block text-4xl sm:text-5xl lg:text-[3.35rem] lg:leading-[1.06]"
+      >
         {nameChars.map((char, index) => (
           <motion.span
             key={`${char}-${index}`}
             className="inline-block whitespace-pre"
             initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-            animate={reduceMotion ? {} : { opacity: 1, y: 0 }}
-            transition={reduceMotion ? undefined : { delay: 0.05 * index, duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+            animate={
+              reduceMotion
+                ? {}
+                : isNameInView
+                  ? { opacity: 1, y: 0 }
+                  : { opacity: 0, y: 16 }
+            }
+            transition={
+              reduceMotion
+                ? undefined
+                : isNameInView
+                  ? { delay: 0.05 * index, duration: 0.32, ease: [0.22, 1, 0.36, 1] }
+                  : { duration: 0 }
+            }
           >
             {char}
           </motion.span>

@@ -83,9 +83,15 @@
   }
 }
 
-@keyframes neural-rotate {
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spin-border {
   to {
-    transform: rotate(360deg);
+    --angle: 360deg;
   }
 }
 
@@ -123,30 +129,30 @@
     background: radial-gradient(circle at center, rgba(0, 212, 255, 0.05), transparent 72%);
   }
 
-  .neural-conic-border {
+  .research-card-spin-outer {
     position: relative;
     border-radius: 1.35rem;
-    overflow: hidden;
-    padding: 1px;
-  }
-
-  .neural-conic-border::before {
-    content: "";
-    position: absolute;
-    inset: -120%;
+    padding: 2px;
     background: conic-gradient(
-      from 0deg,
-      rgba(0, 212, 255, 0.3),
-      rgba(123, 47, 255, 0.3),
-      rgba(0, 212, 255, 0.3)
+      from var(--angle),
+      #0b1120 20%,
+      #00d4ff 40%,
+      #7b2fff 60%,
+      #00d4ff 80%,
+      #0b1120 100%
     );
-    animation: neural-rotate 4s linear infinite;
+    animation: spin-border 3s linear infinite;
+    box-shadow:
+      0 24px 80px -32px rgba(37, 99, 235, 0.45),
+      0 0 20px rgba(0, 212, 255, 0.2),
+      0 0 40px rgba(123, 47, 255, 0.1);
   }
 
-  .neural-conic-border-inner {
+  .research-card-spin-inner {
     position: relative;
     border-radius: 1.28rem;
-    background: linear-gradient(180deg, rgba(21, 31, 50, 0.9), rgba(6, 11, 24, 0.98));
+    background: #0d1628;
+    overflow: hidden;
   }
 
   .shimmer-sweep {

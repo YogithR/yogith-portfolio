@@ -83,16 +83,36 @@ export function FeaturedResearch() {
         <Reveal delay={0.06}>
           <motion.div
             className={cn(
-              "relative mt-12 shadow-[0_24px_80px_-32px_rgba(37,99,235,0.45)]",
-              reduceMotion ? "rounded-[1.35rem] border border-secondary/25 bg-surface/40 p-px" : "neural-conic-border",
+              "relative mt-12",
+              reduceMotion
+                ? "rounded-[1.35rem] border border-secondary/25 bg-surface/40 p-px shadow-[0_24px_80px_-32px_rgba(37,99,235,0.45)]"
+                : "research-card-spin-outer",
             )}
             initial={reduceMotion ? false : { opacity: 0, y: 20 }}
             whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-12% 0px" }}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="pointer-events-none absolute inset-0 rounded-[1.28rem] bg-gradient-to-br from-primary/18 via-transparent to-accent/12" aria-hidden />
-            <div className="neural-conic-border-inner p-6 sm:p-8 lg:p-10">
+            {reduceMotion ? (
+              <div
+                className="pointer-events-none absolute inset-0 rounded-[1.28rem] bg-gradient-to-br from-primary/18 via-transparent to-accent/12"
+                aria-hidden
+              />
+            ) : null}
+            <div
+              className={cn(
+                "p-6 sm:p-8 lg:p-10",
+                reduceMotion
+                  ? "relative rounded-[1.28rem] bg-gradient-to-b from-[rgba(21,31,50,0.9)] to-[rgba(6,11,24,0.98)]"
+                  : "research-card-spin-inner",
+              )}
+            >
+              {!reduceMotion ? (
+                <div
+                  className="pointer-events-none absolute inset-0 rounded-[1.28rem] bg-gradient-to-br from-primary/18 via-transparent to-accent/12"
+                  aria-hidden
+                />
+              ) : null}
               <div
                 className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-secondary/80 to-transparent"
                 aria-hidden
