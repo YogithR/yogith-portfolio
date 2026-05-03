@@ -259,7 +259,7 @@ export const experience: readonly ExperienceRole[] = [
 export const educationSection = {
   eyebrow: "Academics",
   title: "Education",
-  description: "Formal training that underpins my software, systems, and ML work.",
+  description: "Formal training that underpins software, systems, cloud, AI/ML, and DevOps work.",
 } as const;
 
 export const education = [
