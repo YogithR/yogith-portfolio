@@ -37,7 +37,7 @@ export const hero = {
     "Cloud-native systems, production-grade APIs, ML pipelines, and serverless architectures — engineered for reliability, scale, and real-world impact.",
   /** Short intro for recruiters (2–3 sentences). */
   summary:
-    "M.S. Computer Science candidate at DePaul University, specializing in cloud engineering, backend development, full-stack delivery, machine learning, and DevOps. Yogith has shipped production features, resolved critical incidents, and built scalable cloud-native pipelines on AWS — with hands-on experience across internships, academic projects, and research in carbon-aware AI scheduling. His work is defined by scalable architecture, observability, automated testing, reproducible experimentation, and clear cross-functional communication.",
+    "I'm an M.S. Computer Science candidate at DePaul University, specializing in software engineering, cloud engineering, backend development, full-stack development, machine learning, and DevOps. I've shipped production features, resolved critical incidents, and built AWS-native pipelines, REST APIs, and CI/CD workflows through internships and academic projects. My current focus is research on carbon-aware scheduling for multi-region AI inference. I'm driven by scalable architecture, observability, automated testing, reproducible workflows, and clear cross-functional communication.",
 } as const;
 
 /**
@@ -50,9 +50,9 @@ export const about = {
   description:
     "Education, technical focus, and the engineering mindset behind every project.",
   paragraphs: [
-    "Yogith Ramanan is pursuing a Master of Science in Computer Science at DePaul University (January 2025–present), building on a Bachelor of Engineering in Computer Science from Sri Krishna College of Engineering and Technology (July 2020–May 2024). His academic path reflects a strong foundation in software engineering, now extended with graduate-level work in cloud systems, backend architecture, applied machine learning, and DevOps pipelines.",
-    "He is driven by roles that demand reliability, scalability, and precision — designing and operating backend services and APIs, deploying cloud-native and serverless systems, and applying machine learning where it delivers measurable outcomes. He is equally comfortable working across the full stack when a project requires it, with a focus on integration, observability, and systems that teams can test, monitor, and improve with confidence.",
-    "His internship experience in product development support and full-stack delivery reinforced how production issues surface for real users and how disciplined debugging, clear documentation, and proactive communication accelerate resolution. He brings a consistent bias toward automation, testing, and reproducible workflows — habits sharpened through coursework, hands-on projects, and research.",
+    "I'm pursuing an M.S. in Computer Science at DePaul University, building on my B.E. in Computer Science from Sri Krishna College of Engineering and Technology. My academic path reflects a strong foundation in software engineering, now extended with graduate-level work in cloud systems, backend architecture, applied machine learning, and DevOps pipelines.",
+    "I'm motivated by roles where reliability, scalability, and clarity matter — designing and operating backend services and APIs, shipping cloud-native and serverless systems, and applying machine learning where it delivers measurable outcomes. I'm comfortable working across the full stack when needed, with particular interest in integration, observability, and systems that teams can test, monitor, and improve with confidence.",
+    "My internship experience in product development support and full-stack delivery taught me how production issues surface for real users and how disciplined debugging, clear documentation, and proactive communication accelerate fixes. I bring a consistent bias toward automation, testing, and reproducible workflows — habits I've sharpened through coursework, hands-on projects, and research.",
   ],
   /** Small highlight cards — facts only, from your resume and stated focus areas. */
   stats: [
