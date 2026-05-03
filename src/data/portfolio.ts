@@ -10,9 +10,9 @@
 
 export const personal = {
   name: "Yogith Ramanan",
-  title: "Computer Science Graduate Student · Full-Stack & ML Engineer",
+  title: "Computer Science Graduate Student · Software Engineer · Cloud · Backend · AI/ML · DevOps",
   tagline:
-    "I build reliable cloud systems, ML pipelines, and polished interfaces—with a focus on performance, observability, and sustainable AI infrastructure.",
+    "Cloud-native systems, production-grade APIs, ML pipelines, and serverless architectures — engineered for reliability, scale, and real-world impact.",
   email: "yogithramana@gmail.com",
   phone: "773-550-1620",
   location: "Chicago, IL · USA",
@@ -34,10 +34,10 @@ export const hero = {
   availability: "Open to internships & full-time opportunities",
   /** One-line value proposition under your name. */
   headline:
-    "Cloud systems, ML pipelines, and interfaces engineered for production—not demos.",
+    "Cloud-native systems, production-grade APIs, ML pipelines, and serverless architectures — engineered for reliability, scale, and real-world impact.",
   /** Short intro for recruiters (2–3 sentences). */
   summary:
-    "M.S. Computer Science candidate at DePaul University, with a B.E. from Sri Krishna College of Engineering and Technology. I’ve delivered full-stack features and production UI support as an intern at GURU IT Services, built data-backed web components at Gateway Software Solution, and more recently focused on AWS-native pipelines, reproducible ML, and research on carbon-aware scheduling for multi-region inference—with an emphasis on observability, testing, and clear cross-functional communication.",
+    "M.S. Computer Science candidate at DePaul University, specializing in cloud engineering, backend development, full-stack delivery, machine learning, and DevOps. Yogith has shipped production features, resolved critical incidents, and built scalable cloud-native pipelines on AWS — with hands-on experience across internships, academic projects, and research in carbon-aware AI scheduling. His work is defined by scalable architecture, observability, automated testing, reproducible experimentation, and clear cross-functional communication.",
 } as const;
 
 /**
@@ -48,11 +48,11 @@ export const about = {
   eyebrow: "Profile",
   title: "About me",
   description:
-    "Education, focus areas, and how I approach software, cloud, and applied machine learning in a professional setting.",
+    "Education, technical focus, and the engineering mindset behind every project.",
   paragraphs: [
-    "I’m pursuing an M.S. in Computer Science at DePaul University (January 2025–present), building on a B.E. in Computer Science from Sri Krishna College of Engineering and Technology (July 2020–May 2024). That path reflects how I think about the field: a solid undergraduate base in software engineering, now extended with graduate work that emphasizes rigorous systems thinking, scalability, and responsible use of AI.",
-    "I’m motivated by roles where reliability and clarity matter—designing and operating backend services and APIs, shipping cloud-native and serverless systems, and applying machine learning when it’s tied to measurable outcomes and sound evaluation. I’m comfortable working across the stack when a project requires it, with particular interest in integration, observability, and interfaces that teams can test, monitor, and improve over time.",
-    "My internships in product development/support and full-stack delivery reinforced how production issues show up for users and how clear communication accelerates fixes. I carry that into technical work: disciplined debugging, documentation others can act on, and a bias toward automation, testing, and reproducible experimentation—habits I continue to sharpen through coursework, hands-on projects, and research.",
+    "Yogith Ramanan is pursuing a Master of Science in Computer Science at DePaul University (January 2025–present), building on a Bachelor of Engineering in Computer Science from Sri Krishna College of Engineering and Technology (July 2020–May 2024). His academic path reflects a strong foundation in software engineering, now extended with graduate-level work in cloud systems, backend architecture, applied machine learning, and DevOps pipelines.",
+    "He is driven by roles that demand reliability, scalability, and precision — designing and operating backend services and APIs, deploying cloud-native and serverless systems, and applying machine learning where it delivers measurable outcomes. He is equally comfortable working across the full stack when a project requires it, with a focus on integration, observability, and systems that teams can test, monitor, and improve with confidence.",
+    "His internship experience in product development support and full-stack delivery reinforced how production issues surface for real users and how disciplined debugging, clear documentation, and proactive communication accelerate resolution. He brings a consistent bias toward automation, testing, and reproducible workflows — habits sharpened through coursework, hands-on projects, and research.",
   ],
   /** Small highlight cards — facts only, from your resume and stated focus areas. */
   stats: [
@@ -224,7 +224,7 @@ export const experienceSection = {
   eyebrow: "Work",
   title: "Experience",
   description:
-    "Internships focused on production-minded delivery—debugging real user-facing issues, shipping fixes, and collaborating across functions.",
+    "Hands-on experience delivering production-grade software, supporting live systems, and building end-to-end features under real-world constraints.",
 } as const;
 
 export const experience: readonly ExperienceRole[] = [
@@ -235,9 +235,9 @@ export const experience: readonly ExperienceRole[] = [
     start: "January 2024",
     end: "June 2024",
     highlights: [
-      "Diagnosed and resolved customer-facing UI problems across HTML, CSS, and JavaScript—reproducing defects, isolating root causes, and validating fixes end-to-end before they reached users again.",
-      "Triaged production incidents using log analysis, implemented patches, and documented remediation so repeat failures were less likely.",
-      "Wrote clear defect reports and validation summaries that helped engineering prioritize fixes and kept communication tight around live issues.",
+      "Diagnosed and resolved customer-facing UI issues across HTML, CSS, and JavaScript — reproducing defects, isolating root causes, and validating fixes end-to-end before deployment.",
+      "Triaged and responded to production incidents under time pressure, reproducing issues, identifying causes, and coordinating with engineering teams to deploy resolutions, minimizing user impact and downtime.",
+      "Authored clear defect reports and technical documentation that accelerated resolution cycles and enabled non-engineering teams to understand and communicate fixes to stakeholders.",
     ],
     tags: ["HTML / CSS / JavaScript", "Production support", "Incident response", "Cross-functional communication"],
   },
@@ -248,9 +248,9 @@ export const experience: readonly ExperienceRole[] = [
     start: "July 2022",
     end: "September 2022",
     highlights: [
-      "Built and refined web components that surfaced backend data as interactive dashboards and customer-facing screens.",
-      "Worked across front-end, back-end, and database layers as requirements changed, prioritizing stability and fewer regressions.",
-      "Followed GitHub-based branching and review practices so changes stayed traceable and easier to ship with confidence.",
+      "Built and iterated on web components that surfaced backend data as interactive dashboards and customer-facing screens, improving data accessibility and user workflow efficiency.",
+      "Worked across frontend, backend, and database layers as requirements evolved, prioritizing stability, minimizing regressions, and ensuring consistent delivery.",
+      "Followed GitHub-based branching, code review, and merge workflows to keep changes traceable, well-documented, and ready for confident deployment.",
     ],
     tags: ["Full-stack", "Dashboards", "GitHub workflows"],
   },
@@ -314,7 +314,7 @@ export const contactSection = {
   eyebrow: "Reach out",
   title: "Contact",
   description:
-    "Open to internships and full-time roles in software engineering—especially teams working on cloud systems, reliable backends, and applied ML.",
+    "I’m actively seeking internships and full-time opportunities in Software Engineering, SDE, Cloud/DevOps, Backend Development, and AI/ML roles. I’m especially interested in building scalable systems, cloud-native platforms, reliable backend services, automation pipelines, and applied machine learning solutions that create real-world impact.",
   /** Short CTA line under the heading (recruiter-oriented). */
   opportunityLine:
     "If you’re hiring or want to discuss a project, reach me by email or the form—LinkedIn works too.",
@@ -324,7 +324,7 @@ export const featuredResearchSection = {
   eyebrow: "Research",
   title: "Featured research",
   description:
-    "A focused highlight from recent work—simulation-driven routing for lower carbon without sacrificing latency SLOs.",
+    "Research in cloud-scale AI inference, carbon-aware scheduling, and simulation-driven evaluation for sustainable infrastructure.",
 } as const;
 
 /** Carbon-aware scheduling study — website copy derived from resume bullets (metrics and claims preserved). */
@@ -334,13 +334,13 @@ export const featuredResearch = {
   tags: ["Python", "Cloud systems", "Simulation", "Sustainability"] as const,
   /** Short overview (2 sentences). */
   summary:
-    "This project asks how to route inference requests across global regions when both electricity carbon intensity and network latency matter. I built a discrete-event simulator on real traces, then designed and evaluated hybrid routing policies—including constrained and adaptive controllers—against strong static baselines and prior carbon-aware systems.",
+    "This research explores how AI inference workloads can be routed across global cloud regions when both carbon intensity and latency constraints must be simultaneously optimized. The work involved building a discrete-event simulator using real-world workload traces, designing adaptive hybrid routing policies, and benchmarking them against static geographic and carbon-only baselines to identify strategies that reduce carbon impact without violating service-level objectives (SLOs).",
   /** Tight outcome statements; each maps to detailed resume bullets. */
   outcomes: [
-    "Python discrete-event simulation comparing 8 request-routing policies across 5 AWS regions and 3 model workloads (BERT-base, BERT-large, ResNet-50), replaying 33,600 requests over 7 days with measured carbon-intensity and latency data.",
-    "Constrained Hybrid policy: 54.8-point carbon-intensity reduction vs static baselines with zero SLO violations and 62.3 ms average latency—demonstrating carbon savings without breaking service objectives.",
-    "Adaptive Hybrid controller: closed-loop feedback on per-workload P95 latency headroom to adjust routing weights dynamically, removing hand-tuned parameters.",
-    "Pareto analysis plus a five-scenario deployment framework (strict through batch-async SLOs), benchmarked against CASPER, Google CICS, and Microsoft-style carbon-aware computing references.",
+    "Constrained Hybrid routing policy — 54.8-point reduction in carbon intensity while meeting latency SLOs",
+    "Adaptive Hybrid controller — dynamically selects the best-performing policy based on real-time conditions",
+    "Pareto analysis across policies — trade-off characterization between carbon savings, latency, and cost",
+    "Simulation framework grounded in real AWS pricing, carbon intensity data, and network latency metrics",
   ],
   /**
    * Optional links for the research card.
@@ -375,7 +375,7 @@ export const projectsSection = {
   eyebrow: "Builds",
   title: "Projects",
   description:
-    "Selected engineering work spanning SDK design, applied ML, AWS serverless systems, and multimodal decision support—summarized for quick scanning.",
+    "Selected projects demonstrating cloud engineering, applied machine learning, full-stack development, and production-ready system design.",
 } as const;
 
 export const projects: readonly ProjectEntry[] = [
@@ -384,7 +384,7 @@ export const projects: readonly ProjectEntry[] = [
     name: "Cloud-Native Multimodal AI Platform for Drug Candidate Prioritization",
     period: "February 2026 – April 2026",
     summary:
-      "End-to-end pipeline for drug-like candidates: reproducible ingestion from SMILES and metadata through RDKit features, multimodal model comparison, and a transparent ranking layer for prioritization—with a production-style API and CI.",
+      "End-to-end pipeline for drug candidate scoring, combining molecular structure features with multimodal learning. Built a FastAPI backend serving the trained model with containerized deployment via Docker, enabling scalable inference for chemistry and biotech workflows.",
     tech: [
       "Python",
       "RDKit",
@@ -413,7 +413,7 @@ export const projects: readonly ProjectEntry[] = [
     name: "A2A Java SDK — Agent-to-Agent Communication Platform",
     period: "January 2025 – June 2025",
     summary:
-      "Java SDK for agent-to-agent messaging with typed contracts, streaming responses, and logging aimed at traceable integrations in distributed agent systems.",
+      "Designed and implemented a Java SDK for agent-to-agent messaging, featuring strongly typed contracts, streaming response handling, and task lifecycle management — enabling structural interoperability between autonomous AI agents.",
     tech: ["Java", "Maven", "JUnit", "Streaming APIs", "Structured logging"],
     highlights: [
       "Typed request/response models with metadata for extensible agent protocols.",
@@ -430,7 +430,7 @@ export const projects: readonly ProjectEntry[] = [
     name: "Food Calorie Tracker",
     period: "August 2025 – October 2025",
     summary:
-      "Streamlit app around a transfer-learned vision model on Food-101, with input hygiene, faster CPU inference, and workflows for human review and prediction history.",
+      "Streamlit-powered food recognition app using MobileNetV2 on the Food-101 dataset for calorie estimation and nutritional tracking. Deployed as an interactive web application with real-time image classification.",
     tech: ["Python", "TensorFlow", "MobileNetV2", "Streamlit", "Food-101"],
     highlights: [
       "Transfer learning with MobileNetV2 plus filtering to reduce non-food traffic.",
@@ -448,7 +448,7 @@ export const projects: readonly ProjectEntry[] = [
     name: "Serverless Document Processing System (AWS)",
     period: "December 2025 – January 2026",
     summary:
-      "Event-driven document ingestion and text extraction on AWS, with idempotent state, authenticated APIs, and operational visibility suitable for production-style workloads.",
+      "Event-driven document processing pipeline on AWS using S3 triggers, Lambda functions, and Amazon Textract for asynchronous text extraction with idempotent processing and DynamoDB-backed state management. REST API with API-key authentication, latency monitoring, and error tracking via CloudWatch.",
     tech: [
       "AWS Lambda",
       "S3",
