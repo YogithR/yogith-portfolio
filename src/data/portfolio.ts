@@ -380,35 +380,6 @@ export const projectsSection = {
 
 export const projects: readonly ProjectEntry[] = [
   {
-    id: "drug-prioritization",
-    name: "Cloud-Native Multimodal AI Platform for Drug Candidate Prioritization",
-    period: "February 2026 – April 2026",
-    summary:
-      "End-to-end pipeline for drug candidate scoring, combining molecular structure features with multimodal learning. Built a FastAPI backend serving the trained model with containerized deployment via Docker, enabling scalable inference for chemistry and biotech workflows.",
-    tech: [
-      "Python",
-      "RDKit",
-      "PyTorch",
-      "scikit-learn",
-      "MLflow",
-      "FastAPI",
-      "Docker Compose",
-      "GitHub Actions",
-      "Prometheus",
-      "pytest",
-    ],
-    highlights: [
-      "YAML-driven training workflows with structured evaluation across classical, tree-based fusion, and GCN-style graph–tabular fusion models.",
-      "Deterministic ranking with descriptor penalties, confidence, tie-breaks, and reason codes for explainable decision support.",
-      "Containerized FastAPI service (predict / rank / batch-rank), Docker Compose packaging, automated tests, and metrics-ready instrumentation.",
-    ],
-    imageSrc: "/images/projects/drug-prioritization.jpg",
-    featured: true,
-    links: {
-      repository: "https://github.com/YogithR/Cloud-Native-Multimodal-Drug-Prioritization-",
-    },
-  },
-  {
     id: "agentmind",
     name: "AgentMind — Autonomous Multi-Agent ML System",
     period: "January 2026 – June 2026",
@@ -441,45 +412,39 @@ export const projects: readonly ProjectEntry[] = [
       "Dark and Light mode UI with smooth animations",
       "Fully deployed and live — not just a local project",
     ],
-    imageSrc: "/images/projects/agentmind.svg",
+    imageSrc: "/images/projects/agentmind.jpg",
+    featured: true,
     links: {
       demo: "https://agent-mind-ucf3.vercel.app",
       repository: "https://github.com/YogithR/AgentMind",
     },
   },
   {
-    id: "a2a-sdk",
-    name: "A2A Java SDK — Agent-to-Agent Communication Platform",
-    period: "January 2025 – June 2025",
+    id: "drug-prioritization",
+    name: "Cloud-Native Multimodal AI Platform for Drug Candidate Prioritization",
+    period: "February 2026 – April 2026",
     summary:
-      "Designed and implemented a Java SDK for agent-to-agent messaging, featuring strongly typed contracts, streaming response handling, and task lifecycle management — enabling structural interoperability between autonomous AI agents.",
-    tech: ["Java", "Maven", "JUnit", "Streaming APIs", "Structured logging"],
-    highlights: [
-      "Typed request/response models with metadata for extensible agent protocols.",
-      "Streaming handlers and structured logs to support observability across calls.",
-      "Payload validation, edge-case handling, and consistent error semantics for integrators.",
+      "End-to-end pipeline for drug candidate scoring, combining molecular structure features with multimodal learning. Built a FastAPI backend serving the trained model with containerized deployment via Docker, enabling scalable inference for chemistry and biotech workflows.",
+    tech: [
+      "Python",
+      "RDKit",
+      "PyTorch",
+      "scikit-learn",
+      "MLflow",
+      "FastAPI",
+      "Docker Compose",
+      "GitHub Actions",
+      "Prometheus",
+      "pytest",
     ],
-    imageSrc: "/images/projects/a2a-sdk.jpg",
-    links: {
-      repository: "https://github.com/YogithR/a2aproject-a2a-java",
-    },
-  },
-  {
-    id: "food-calorie",
-    name: "Food Calorie Tracker",
-    period: "August 2025 – October 2025",
-    summary:
-      "Streamlit-powered food recognition app using MobileNetV2 on the Food-101 dataset for calorie estimation and nutritional tracking. Deployed as an interactive web application with real-time image classification.",
-    tech: ["Python", "TensorFlow", "MobileNetV2", "Streamlit", "Food-101"],
     highlights: [
-      "Transfer learning with MobileNetV2 plus filtering to reduce non-food traffic.",
-      "Caching and preprocessing tuned for responsive CPU inference.",
-      "Human-in-the-loop corrections, logging, and exportable prediction history.",
+      "YAML-driven training workflows with structured evaluation across classical, tree-based fusion, and GCN-style graph–tabular fusion models.",
+      "Deterministic ranking with descriptor penalties, confidence, tie-breaks, and reason codes for explainable decision support.",
+      "Containerized FastAPI service (predict / rank / batch-rank), Docker Compose packaging, automated tests, and metrics-ready instrumentation.",
     ],
-    imageSrc: "/images/projects/food-calorie.jpg",
+    imageSrc: "/images/projects/drug-prioritization.jpg",
     links: {
-      demo: "https://food-calorie-tracker-aqkncnfrudkuqhwqebgzqw.streamlit.app/",
-      repository: "https://github.com/YogithR/Food-Calorie-Tracker",
+      repository: "https://github.com/YogithR/Cloud-Native-Multimodal-Drug-Prioritization-",
     },
   },
   {
@@ -505,6 +470,41 @@ export const projects: readonly ProjectEntry[] = [
     imageSrc: "/images/projects/serverless-docs.jpg",
     links: {
       repository: "https://github.com/YogithR/Serverless-Document-Processing-Pipeline-AWS-",
+    },
+  },
+  {
+    id: "food-calorie",
+    name: "Meal Snap AI",
+    period: "August 2025 – October 2025",
+    summary:
+      "Streamlit-powered food recognition app using MobileNetV2 on the Food-101 dataset for calorie estimation and nutritional tracking. Deployed as an interactive web application with real-time image classification.",
+    tech: ["Python", "TensorFlow", "MobileNetV2", "Streamlit", "Food-101"],
+    highlights: [
+      "Transfer learning with MobileNetV2 plus filtering to reduce non-food traffic.",
+      "Caching and preprocessing tuned for responsive CPU inference.",
+      "Human-in-the-loop corrections, logging, and exportable prediction history.",
+    ],
+    imageSrc: "/images/projects/food-calorie.jpg",
+    links: {
+      demo: "https://food-calorie-tracker-aqkncnfrudkuqhwqebgzqw.streamlit.app/",
+      repository: "https://github.com/YogithR/Food-Calorie-Tracker",
+    },
+  },
+  {
+    id: "a2a-sdk",
+    name: "A2A Java SDK — Agent-to-Agent Communication Platform",
+    period: "January 2025 – June 2025",
+    summary:
+      "Designed and implemented a Java SDK for agent-to-agent messaging, featuring strongly typed contracts, streaming response handling, and task lifecycle management — enabling structural interoperability between autonomous AI agents.",
+    tech: ["Java", "Maven", "JUnit", "Streaming APIs", "Structured logging"],
+    highlights: [
+      "Typed request/response models with metadata for extensible agent protocols.",
+      "Streaming handlers and structured logs to support observability across calls.",
+      "Payload validation, edge-case handling, and consistent error semantics for integrators.",
+    ],
+    imageSrc: "/images/projects/a2a-sdk.jpg",
+    links: {
+      repository: "https://github.com/YogithR/a2aproject-a2a-java",
     },
   },
 ];
