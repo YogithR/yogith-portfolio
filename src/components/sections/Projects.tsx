@@ -82,27 +82,25 @@ function FeaturedProjectCard({
     >
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/12 via-transparent to-accent/10 opacity-90" aria-hidden />
       <div className="relative p-5 sm:p-6 lg:p-8">
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-stretch lg:gap-8">
-          <ProjectImage
-            project={project}
-            variant="featured"
-            className="aspect-video w-full min-h-[220px] lg:aspect-auto lg:h-full"
-          />
-          <div className="flex min-w-0 flex-col lg:pt-1">
-            <span className="mb-3 inline-flex w-fit items-center rounded-full border border-secondary/35 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-secondary">
-              Featured project
-            </span>
-            <h3 className="text-balance text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
-              {project.name}
-            </h3>
-            <p className="mt-2 text-sm font-medium text-muted">{project.period}</p>
-            <p className="mt-4 line-clamp-4 text-pretty text-sm leading-relaxed text-muted sm:text-base">
-              {project.summary}
-            </p>
-            <TechRow tech={project.tech} className="mt-4" limit={8} />
-            <Highlights items={project.highlights} className="mt-5" maxItems={4} />
-            <ProjectLinks project={project} className="mt-6" />
-          </div>
+        <ProjectImage
+          project={project}
+          variant="featured"
+          className="aspect-video w-full shrink-0"
+        />
+        <div className="flex min-w-0 flex-col pt-6 lg:pt-8">
+          <span className="mb-3 inline-flex w-fit items-center rounded-full border border-secondary/35 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-secondary">
+            Featured project
+          </span>
+          <h3 className="text-balance text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
+            {project.name}
+          </h3>
+          <p className="mt-2 text-sm font-medium text-muted">{project.period}</p>
+          <p className="mt-4 line-clamp-4 text-pretty text-sm leading-relaxed text-muted sm:text-base">
+            {project.summary}
+          </p>
+          <TechRow tech={project.tech} className="mt-4" limit={8} />
+          <Highlights items={project.highlights} className="mt-5" maxItems={4} />
+          <ProjectLinks project={project} className="mt-6" />
         </div>
       </div>
     </motion.article>
@@ -171,16 +169,16 @@ function ProjectImage({
         className={cn(
           "object-center transition duration-700 ease-out",
           isFeatured
-            ? "object-cover bg-[#060b18] group-hover:scale-[1.02]"
+            ? "object-contain bg-[#060b18] group-hover:scale-[1.01]"
             : "object-cover group-hover:scale-[1.04]",
         )}
-        sizes={isFeatured ? "(min-width: 1024px) 42vw, 100vw" : "(min-width: 1024px) 33vw, 100vw"}
+        sizes={isFeatured ? "(min-width: 1024px) 1120px, 100vw" : "(min-width: 1024px) 33vw, 100vw"}
         unoptimized={project.imageSrc.endsWith(".svg")}
       />
       <div
         className={cn(
           "pointer-events-none absolute inset-0 bg-gradient-to-t from-background/85 via-transparent to-transparent",
-          isFeatured ? "opacity-25" : "opacity-80 lg:opacity-60",
+          isFeatured ? "opacity-0" : "opacity-80 lg:opacity-60",
         )}
       />
       <p className="sr-only">
