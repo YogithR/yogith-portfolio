@@ -81,20 +81,28 @@ function FeaturedProjectCard({
       whileHover={reduceMotion ? undefined : { y: -8, boxShadow: "0 20px 60px rgba(0,212,255,0.12)" }}
     >
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/12 via-transparent to-accent/10 opacity-90" aria-hidden />
-      <div className="relative grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:items-stretch lg:gap-10">
-        <ProjectImage project={project} className="aspect-[16/10] lg:aspect-auto lg:min-h-[280px]" />
-        <div className="flex flex-col px-6 pb-8 pt-2 sm:px-8 lg:py-8 lg:pr-10">
-          <span className="mb-3 inline-flex w-fit items-center rounded-full border border-secondary/35 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-secondary">
-            Featured project
-          </span>
-          <h3 className="text-balance text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
-            {project.name}
-          </h3>
-          <p className="mt-2 text-sm font-medium text-muted">{project.period}</p>
-          <p className="mt-4 text-pretty text-base leading-relaxed text-muted sm:text-lg">{project.summary}</p>
-          <TechRow tech={project.tech} className="mt-5" />
-          <Highlights items={project.highlights} className="mt-6" />
-          <ProjectLinks project={project} className="mt-8" />
+      <div className="relative p-5 sm:p-6 lg:p-8">
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-start lg:gap-8">
+          <ProjectImage
+            project={project}
+            variant="featured"
+            className="aspect-video w-full shrink-0 overflow-hidden rounded-xl border border-border-subtle/70"
+          />
+          <div className="flex min-w-0 flex-col lg:pt-1">
+            <span className="mb-3 inline-flex w-fit items-center rounded-full border border-secondary/35 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-secondary">
+              Featured project
+            </span>
+            <h3 className="text-balance text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
+              {project.name}
+            </h3>
+            <p className="mt-2 text-sm font-medium text-muted">{project.period}</p>
+            <p className="mt-4 line-clamp-4 text-pretty text-sm leading-relaxed text-muted sm:text-base">
+              {project.summary}
+            </p>
+            <TechRow tech={project.tech} className="mt-4" limit={8} />
+            <Highlights items={project.highlights} className="mt-5" maxItems={4} />
+            <ProjectLinks project={project} className="mt-6" />
+          </div>
         </div>
       </div>
     </motion.article>
@@ -116,7 +124,7 @@ function ProjectCard({
         padding="none"
         className="group flex h-full flex-col overflow-hidden border-border-subtle/90 transition-shadow duration-300 hover:border-secondary/25 hover:shadow-[0_22px_55px_-32px_rgba(0,0,0,0.65)]"
       >
-        <ProjectImage project={project} className="aspect-[16/10] shrink-0" />
+        <ProjectImage project={project} className="aspect-video shrink-0" />
         <div className={cn("flex flex-1 flex-col px-5 pb-6 pt-5 sm:px-6", compact && "pt-4")}>
           <h3 className="text-lg font-semibold leading-snug tracking-tight text-foreground">{project.name}</h3>
           <p className="mt-1.5 text-xs font-medium text-muted sm:text-sm">{project.period}</p>
@@ -132,8 +140,17 @@ function ProjectCard({
   );
 }
 
-function ProjectImage({ project, className }: { project: (typeof projects)[number]; className?: string }) {
+function ProjectImage({
+  project,
+  className,
+  variant = "default",
+}: {
+  project: (typeof projects)[number];
+  className?: string;
+  variant?: "default" | "featured";
+}) {
   const reduceMotion = useReducedMotion();
+  const isFeatured = variant === "featured";
 
   return (
     <motion.div
@@ -145,13 +162,21 @@ function ProjectImage({ project, className }: { project: (typeof projects)[numbe
     >
       <Image
         src={project.imageSrc}
-        alt=""
+        alt={`${project.name} preview`}
         fill
-        className="object-cover object-center transition duration-700 ease-out group-hover:scale-[1.04]"
-        sizes="(min-width: 1024px) 50vw, 100vw"
+        className={cn(
+          "object-center transition duration-700 ease-out",
+          isFeatured ? "object-contain bg-[#060b18] group-hover:scale-[1.02]" : "object-cover group-hover:scale-[1.04]",
+        )}
+        sizes={isFeatured ? "(min-width: 1024px) 42vw, 100vw" : "(min-width: 1024px) 33vw, 100vw"}
         unoptimized={project.imageSrc.endsWith(".svg")}
       />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/85 via-transparent to-transparent opacity-80 lg:opacity-60" />
+      <div
+        className={cn(
+          "pointer-events-none absolute inset-0 bg-gradient-to-t from-background/85 via-transparent to-transparent",
+          isFeatured ? "opacity-25" : "opacity-80 lg:opacity-60",
+        )}
+      />
       <p className="sr-only">
         Screenshot placeholder. Replace the file at {project.imageSrc} or point imageSrc to your asset in
         src/data/portfolio.ts.
@@ -198,16 +223,21 @@ function Highlights({
   items,
   className,
   compact,
+  maxItems,
 }: {
   items: readonly string[];
   className?: string;
   compact?: boolean;
+  maxItems?: number;
 }) {
-  const list = compact ? items.slice(0, 2) : items;
+  const limit = maxItems ?? (compact ? 2 : undefined);
+  const list = limit ? items.slice(0, limit) : items;
+  const hiddenCount = limit && items.length > limit ? items.length - limit : 0;
+
   return (
     <div className={className}>
       <h4 className="text-[11px] font-semibold uppercase tracking-[0.16em] text-secondary">Highlights</h4>
-      <ul className="mt-3 space-y-2.5" role="list">
+      <ul className="mt-3 space-y-2" role="list">
         {list.map((line, i) => (
           <li key={i} className="relative pl-4 text-sm leading-relaxed text-muted">
             <span className="absolute left-0 top-[0.55em] h-1 w-1 rounded-full bg-secondary/80" aria-hidden />
@@ -215,9 +245,9 @@ function Highlights({
           </li>
         ))}
       </ul>
-      {compact && items.length > 2 ? (
+      {hiddenCount > 0 ? (
         <p translate="no" className="notranslate mt-2 text-xs text-muted/90">
-          +{items.length - 2} more in full resume
+          +{hiddenCount} more highlight{hiddenCount === 1 ? "" : "s"}
         </p>
       ) : null}
     </div>
