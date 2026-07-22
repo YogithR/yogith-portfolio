@@ -82,11 +82,11 @@ function FeaturedProjectCard({
     >
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/12 via-transparent to-accent/10 opacity-90" aria-hidden />
       <div className="relative p-5 sm:p-6 lg:p-8">
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-start lg:gap-8">
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-stretch lg:gap-8">
           <ProjectImage
             project={project}
             variant="featured"
-            className="aspect-video w-full shrink-0 overflow-hidden rounded-xl border border-border-subtle/70"
+            className="aspect-video w-full min-h-[220px] lg:aspect-auto lg:h-full"
           />
           <div className="flex min-w-0 flex-col lg:pt-1">
             <span className="mb-3 inline-flex w-fit items-center rounded-full border border-secondary/35 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-secondary">
@@ -154,7 +154,11 @@ function ProjectImage({
 
   return (
     <motion.div
-      className={cn("relative overflow-hidden bg-surface/60", className)}
+      className={cn(
+        "relative overflow-hidden bg-surface/60",
+        isFeatured && "rounded-xl border border-border-subtle/70 bg-[#060b18]",
+        className,
+      )}
       initial={reduceMotion ? false : { opacity: 0.86, scale: 1.05 }}
       whileInView={reduceMotion ? undefined : { opacity: 1, scale: 1 }}
       viewport={{ once: true, margin: "-6% 0px" }}
@@ -166,7 +170,9 @@ function ProjectImage({
         fill
         className={cn(
           "object-center transition duration-700 ease-out",
-          isFeatured ? "object-contain bg-[#060b18] group-hover:scale-[1.02]" : "object-cover group-hover:scale-[1.04]",
+          isFeatured
+            ? "object-cover bg-[#060b18] group-hover:scale-[1.02]"
+            : "object-cover group-hover:scale-[1.04]",
         )}
         sizes={isFeatured ? "(min-width: 1024px) 42vw, 100vw" : "(min-width: 1024px) 33vw, 100vw"}
         unoptimized={project.imageSrc.endsWith(".svg")}
