@@ -365,8 +365,6 @@ export type ProjectEntry = {
   highlights: readonly string[];
   /** Image under `public/` — swap for real screenshots when available. */
   imageSrc: string;
-  /** Use `"contain"` so the full image is visible (no crop) inside the frame. */
-  imageFit?: "cover" | "contain";
   /** Larger featured layout on wide screens. */
   featured?: boolean;
   /** Optional public links — omit both until you have real URLs (no fake links). */
@@ -415,7 +413,6 @@ export const projects: readonly ProjectEntry[] = [
       "Fully deployed and live — not just a local project",
     ],
     imageSrc: "/images/projects/agentmind.jpg",
-    imageFit: "contain",
     featured: true,
     links: {
       demo: "https://agent-mind-ucf3.vercel.app",
