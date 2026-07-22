@@ -82,7 +82,14 @@ function FeaturedProjectCard({
     >
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/12 via-transparent to-accent/10 opacity-90" aria-hidden />
       <div className="relative grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:items-stretch lg:gap-10">
-        <ProjectImage project={project} className="aspect-[16/10] lg:aspect-auto lg:min-h-[280px]" />
+        <ProjectImage
+          project={project}
+          className={
+            project.imageFit === "contain"
+              ? "aspect-video lg:min-h-0"
+              : "aspect-[16/10] lg:aspect-auto lg:min-h-[280px]"
+          }
+        />
         <div className="flex flex-col px-6 pb-8 pt-2 sm:px-8 lg:py-8 lg:pr-10">
           <span className="mb-3 inline-flex w-fit items-center rounded-full border border-secondary/35 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-secondary">
             Featured project
@@ -134,6 +141,7 @@ function ProjectCard({
 
 function ProjectImage({ project, className }: { project: (typeof projects)[number]; className?: string }) {
   const reduceMotion = useReducedMotion();
+  const fitContain = project.imageFit === "contain";
 
   return (
     <motion.div
@@ -147,11 +155,16 @@ function ProjectImage({ project, className }: { project: (typeof projects)[numbe
         src={project.imageSrc}
         alt=""
         fill
-        className="object-cover object-center transition duration-700 ease-out group-hover:scale-[1.04]"
+        className={cn(
+          "object-center transition duration-700 ease-out group-hover:scale-[1.04]",
+          fitContain ? "object-contain p-3 sm:p-4" : "object-cover",
+        )}
         sizes="(min-width: 1024px) 50vw, 100vw"
         unoptimized={project.imageSrc.endsWith(".svg")}
       />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/85 via-transparent to-transparent opacity-80 lg:opacity-60" />
+      {!fitContain ? (
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/85 via-transparent to-transparent opacity-80 lg:opacity-60" />
+      ) : null}
       <p className="sr-only">
         Screenshot placeholder. Replace the file at {project.imageSrc} or point imageSrc to your asset in
         src/data/portfolio.ts.
